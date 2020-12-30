@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/x_register_user_view"
+    style="@style/x_common_horizontal_view">
+
+    <RelativeLayout style="@style/x_common_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/x_register_user_des"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/x_common_textsize_l" />
+    </RelativeLayout>
+
+    <View
+        style="@style/x_common_divide"
+        android:layout_height="25dp"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/x_common_inputbox"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/x_login_user"
+                android:contentDescription="@string/x_register_user_des"
+                android:gravity="center" />
+
+            <com.u8.sdk.impl.widgets.ExtendEditText
+                android:id="@+id/x_register_name"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:background="@android:color/transparent"
+                android:hint="@string/x_register_nametip"
+                android:inputType="text"
+                android:maxLength="18"
+                android:paddingStart="6dp"
+                android:paddingLeft="6dp"
+                android:paddingEnd="0dp"
+                android:paddingRight="0dp"
+                android:textColor="@color/x_login_namepwd"
+                android:textColorHint="@color/x_login_namepwd"
+                android:textSize="@dimen/x_common_textsize_m" />
+        </LinearLayout>
+
+        <View
+            style="@style/x_common_divide"
+            android:layout_height="15dp"></View>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/x_common_inputbox"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/x_common_password"
+                android:contentDescription="@string/x_register_user_des"
+                android:gravity="center" />
+
+            <com.u8.sdk.impl.widgets.ExtendEditText
+                android:id="@+id/x_register_pwd"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_weight="0.38"
+                android:background="@android:color/transparent"
+                android:hint="@string/x_register_pwdtip"
+                android:inputType="textPassword"
+                android:maxLength="30"
+                android:paddingStart="6dp"
+                android:paddingLeft="6dp"
+                android:paddingEnd="0dp"
+                android:paddingRight="0dp"
+                android:textColor="@color/x_login_namepwd"
+                android:textColorHint="@color/x_login_namepwd"
+                android:textSize="@dimen/x_common_textsize_m" />
+
+
+            <LinearLayout
+                android:id="@+id/x_regu_showpwd"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="0dp"
+                android:paddingLeft="0dp"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/x_regu_showpwdImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/x_login_hidepwd"
+                    android:contentDescription="@string/x_login_des"
+                    android:gravity="center_vertical"
+                    android:scaleType="fitCenter"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            style="@style/x_common_divide"
+            android:layout_height="15dp"></View>
+
+        <Button
+            android:id="@+id/x_register_user_go"
+            style="@style/x_but_common"
+            android:text="@string/x_register_go" />
+
+        <View
+            style="@style/x_common_divide"
+            android:layout_height="15dp"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/x_register_user_jump"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableStart="@drawable/x_register_iphone"
+                android:drawableLeft="@drawable/x_register_iphone"
+                android:drawablePadding="3dp"
+                android:gravity="center_vertical"
+                android:text="@string/x_jump_register_phone"
+                android:textColor="@color/x_backbtn"
+                android:textSize="@dimen/x_common_textsize_m" />
+
+            <LinearLayout
+                android:id="@+id/x_register_user_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="@string/x_backto_login"
+                    android:textColor="@color/x_backbtn"
+                    android:textSize="@dimen/x_common_textsize_m" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/x_common_divide"
+            android:layout_height="15dp"></View>
+    </LinearLayout>
+
+</LinearLayout>

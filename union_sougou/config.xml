@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    
+    <params>
+        <param name="SG_GID" required="1" showName="游戏ID" desc="搜狗" bWriteInManifest="0" bWriteInClient="1" />
+        <param name="SG_APPKEY" required="1" showName="AppKey" desc="搜狗" bWriteInManifest="0" bWriteInClient="1" /> 
+        <param name="SG_GAME_NAME" required="1" showName="游戏名称" desc="搜狗" bWriteInManifest="0" bWriteInClient="1" />
+        <param name="SG_ORIENTATION" required="1" showName="横竖屏" desc="portrait|landscape" bWriteInManifest="0" bWriteInClient="1" />
+    </params>
+    
+    <operations>
+        <operation step="1" type="mergeManifest" from="SDKManifest.xml" to="AndroidManifest.xml" />
+        <operation step="2" type="copyRes" from="assets" to="assets" />
+        <operation step="3" type="copyRes" from="libs" to="lib" />
+        <operation step="4" type="copyRes" from="res" to="res" />
+        <operation step="4" type="copyRes" from="root" to="" />
+    </operations>
+    
+    <plugins>
+        <plugin name="com.u8.sdk.SouGouUser" type="1" desc="用户登录接口"/>
+        <plugin name="com.u8.sdk.SouGouPay" type="2" desc="用户支付接口"/>
+    </plugins>
+    
+    <extraR>
+        <package name="android.support.v7.appcompat" />
+        <package name="com.sogou.game.sdk" />
+    </extraR>      
+    
+    <version>
+        <name>搜狗</name>
+        <versionCode>1</versionCode>
+        <versionName>2.8.5</versionName>
+    </version>    
+    
+</config>

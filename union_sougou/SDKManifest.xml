@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <permissionConfig>
+        
+    <!-- 搜狗游戏SDK基础权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />    
+        
+    </permissionConfig>
+    
+    <applicationConfig keyword="com.sogou.passportsdk.activity.FindPasswordActivity" proxyApplication="com.u8.sdk.SouGouProxyApplication">
+
+        <!--用户中心忘记密码activity声明-->
+        <activity
+            android:name="com.sogou.passportsdk.activity.FindPasswordActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- 浩 动支付接口参数 -->
+        <meta-data
+            android:name="HDAppId"
+            android:value="501" />
+        <meta-data
+            android:name="HDChannelId"
+            android:value="yxm_03" />
+        <!--支付中心-->
+        <activity
+            android:name="com.gamecat.pay.action.activity.GameCatActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+
+        <!-- 支付宝必要声明 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!-- 接入银联所需的声明 -->
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.UPPay"
+            android:windowSoftInputMode="adjustResize" />
+        <!-- 微信支付 -->
+        <activity
+            android:name="com.ipaynow.wechatpay.plugin.inner_plugin.wechat_plugin.activity.WeChatNotifyActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|smallestScreenSize|locale|screenLayout|screenSize"
+            android:label="@string/sogou_game_sdk_title_activity_we_chat_pay"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!-- 威富通微信支付 -->
+        <activity
+            android:name="com.swiftfintech.pay.activity.UnifiedPay"
+            android:configChanges="orientation|keyboardHidden|keyboard|smallestScreenSize|locale|screenLayout|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        
+        <activity
+            android:name="com.sogou.game.sdk.activity.SogouFloatActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" >
+        </activity>
+        <activity
+            android:name="com.sogou.game.sdk.activity.SogouWebViewActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" >
+        </activity>
+
+        <!-- passport配置 -->
+        <meta-data
+            android:name="sg_passport_sdk_version"
+            android:value="1.3" />
+
+        <activity
+            android:name="com.sogou.game.user.ui.normal.SogouNormalLoginActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+        <activity
+            android:name="com.sogou.game.user.ui.oneclick.SogouOneClickLoginActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+        <activity
+            android:name="com.sogou.game.user.ui.third.SogouThirdLoginActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+        <activity
+            android:name="com.sogou.game.user.ui.realname.RealNameActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+        <activity
+            android:name="com.sogou.game.pay.activity.SogouPayActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+        <activity
+            android:name="com.sogou.game.pay.activity.PayWebViewActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+        <activity
+            android:name="com.sogou.game.pay.activity.SogouQrCodePayActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+        <activity
+            android:name="com.sogou.game.pay.activity.FeedbackWebActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/sogou_game_sdk_activity_transparent" />
+
+        <receiver
+            android:name="com.sogou.game.sdk.manager.AppInstallReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>        
+
+    </applicationConfig>
+    
+</manifest>

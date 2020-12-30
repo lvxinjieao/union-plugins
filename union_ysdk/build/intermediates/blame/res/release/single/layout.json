@@ -1,0 +1,278 @@
+[
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\825032ddf8a9ed25704bf5007436f533\\core-1.3.0\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_force_pop_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_force_pop_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_icon_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_icon_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_permission_dialog_layout.xml",
+        "source": "C:\\studio_workspace\\union\\union4\\build\\intermediates\\packaged_res\\release\\layout\\u8_permission_dialog_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\825032ddf8a9ed25704bf5007436f533\\core-1.3.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\custom_dialog.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\825032ddf8a9ed25704bf5007436f533\\core-1.3.0\\res\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_msgbox_popwindow_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_msgbox_popwindow_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_cascading_menu_item_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_cascading_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_floatmenu_bg.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_floatmenu_bg.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\unipay_layout_loadding.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\unipay_layout_loadding.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_permission_gridview.xml",
+        "source": "C:\\studio_workspace\\union\\union4\\build\\intermediates\\packaged_res\\release\\layout\\u8_permission_gridview.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_msgbox_tips_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_msgbox_tips_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_fuscreenpic_image.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_fuscreenpic_image.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_errerpage.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_errerpage.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_tooltip.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_tooltip.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_permission_grid_item.xml",
+        "source": "C:\\studio_workspace\\union\\union4\\build\\intermediates\\packaged_res\\release\\layout\\u8_permission_grid_item.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_float_menu_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_float_menu_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_auth_result_dialog.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_auth_result_dialog.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_protocol_webview_content.xml",
+        "source": "C:\\studio_workspace\\union\\union4\\build\\intermediates\\packaged_res\\release\\layout\\u8_protocol_webview_content.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_share_panel_view_land.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_share_panel_view_land.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\notification_action.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\825032ddf8a9ed25704bf5007436f533\\core-1.3.0\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_custom_login_choice.xml",
+        "source": "C:\\studio_workspace\\union\\union_ysdk\\src\\main\\res\\layout\\u8_custom_login_choice.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\825032ddf8a9ed25704bf5007436f533\\core-1.3.0\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_real_name_dialog.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_real_name_dialog.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_window_result_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_window_result_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_item_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_item_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_qr.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_qr.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\con_tencent_ysdk_fullscreenpic_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\con_tencent_ysdk_fullscreenpic_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_ad.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_ad.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_protocol_dialog_layout.xml",
+        "source": "C:\\studio_workspace\\union\\union4\\build\\intermediates\\packaged_res\\release\\layout\\u8_protocol_dialog_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_sample.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_sample.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_real_name_main.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_real_name_main.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\825032ddf8a9ed25704bf5007436f533\\core-1.3.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_share_panel_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_share_panel_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_protocol_confirm_layout.xml",
+        "source": "C:\\studio_workspace\\union\\union4\\build\\intermediates\\packaged_res\\release\\layout\\u8_protocol_confirm_layout.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_layout_login_choice.xml",
+        "source": "C:\\studio_workspace\\union\\union_ysdk\\src\\main\\res\\layout\\u8_layout_login_choice.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\u8_protocol_webview.xml",
+        "source": "C:\\studio_workspace\\union\\union4\\build\\intermediates\\packaged_res\\release\\layout\\u8_protocol_webview.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_real_name_webview_dialog.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_real_name_webview_dialog.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\com_tencent_ysdk_icon_close_pop_view.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\6fc24028a8c071eadcd5d4b2f10b7444\\jetified-YSDK_Android_1.6.8_e278214\\res\\layout\\com_tencent_ysdk_icon_close_pop_view.xml"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\union_ysdk\\build\\intermediates\\res\\merged\\release\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\lvxin\\.gradle\\caches\\transforms-2\\files-2.1\\7c4f8456263908ee519e97d43f1a3768\\appcompat-1.2.0\\res\\layout\\abc_alert_dialog_title_material.xml"
+    }
+]

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@drawable/sogou_game_sdk_base_dialog_bg">
+
+    <include
+        android:id="@+id/sogou_game_sdk_fragment_nav"
+        layout="@layout/sogou_game_sdk_fragment_title" />
+
+    <com.sogou.game.common.view.PageSlidingIndicator
+        android:id="@+id/sogou_game_sdk_tab"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/sogou_game_sdk_fragment_nav"
+        app:dividerColor="@color/sogou_game_sdk_color_dddddd"
+        app:indicatorColor="@color/sogou_game_sdk_color_ff8a00"
+        app:indicatorHeight="1dp"
+        app:tabTextSize="15sp"
+        app:textSelectedColor="@color/sogou_game_sdk_color_ff8a00"
+        app:textUnSelectedColor="@color/sogou_game_sdk_color_111111"
+        app:underlineColor="@color/sogou_game_sdk_color_dddddd"
+        app:underlineHeight="1px" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/sogou_game_sdk_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sogou_game_sdk_tab"
+        android:overScrollMode="never" />
+</RelativeLayout>

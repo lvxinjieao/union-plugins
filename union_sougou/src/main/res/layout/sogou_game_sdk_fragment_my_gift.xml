@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/sogou_game_sdk_my_gift_history_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/sogou_game_sdk_my_gift_received"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/sogou_game_sdk_selector_btn_yellow_white_corner"
+            android:checked="true"
+            android:textColor="@drawable/sogou_game_sdk_selector_text_white_black"
+            android:textOff="已领取"
+            android:textOn="已领取"
+            android:textSize="15sp" />
+
+        <ToggleButton
+            android:id="@+id/sogou_game_sdk_my_gift_code"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/sogou_game_sdk_selector_btn_yellow_white_corner"
+            android:textColor="@drawable/sogou_game_sdk_selector_text_white_black"
+            android:textOff="已淘号"
+            android:textOn="已淘号"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/sogou_game_sdk_fragment_my_gift_frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sogou_game_sdk_my_gift_history_type" />
+
+</RelativeLayout>

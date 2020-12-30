@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sogou_pay_webview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sogou_game_sdk_fragment_bg">
+
+    <include
+        android:id="@+id/sogou_game_pay_webview_head"
+        layout="@layout/sogou_game_sdk_head" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sogou_game_pay_webview_head">
+
+        <WebView
+            android:id="@+id/sogou_game_pay_webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/sogou_game_sdk_pay_view_loading"
+            style="?android:attr/progressBarStyleInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/sogou_game_sdk_pay_progressbar"
+            android:indeterminateOnly="true"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</RelativeLayout>

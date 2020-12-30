@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="43dp"
+    android:background="@color/sogou_game_sdk_color_282828">
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_back_img_button"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:drawableLeft="@drawable/sogou_game_sdk_pay_head_back"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_logo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/sogou_game_sdk_head_title"
+        android:textColor="@color/sogou_game_sdk_color_white"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/sogou_game_sdk_iv_close"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/sogou_game_sdk_close"
+        android:visibility="gone"/>
+</RelativeLayout>

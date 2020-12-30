@@ -1,0 +1,43 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.u8.sdk.impl">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application android:allowBackup="true">
+
+        <!-- U8SDK相关activity复制，开始 -->
+        <activity
+            android:name="com.u8.sdk.impl.activities.LoginActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></activity>
+
+        <activity
+            android:name="com.u8.sdk.impl.activities.PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></activity>
+
+        <!-- 下面这些参数，原样复制即可 -->
+        <meta-data
+            android:name="ulog.enable"
+            android:value="true" />
+        <meta-data
+            android:name="ulog.level"
+            android:value="DEBUG" />
+        <meta-data
+            android:name="ulog.local"
+            android:value="true" />
+        <!-- U8SDK相关activity复制，结束-->
+
+    </application>
+
+
+</manifest>

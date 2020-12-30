@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <!--Button的clickable必须设为false，否则整体layout无法响应点击事件-->
+    <Button
+        android:id="@+id/sogou_game_sdk_download_btn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_white_orange_border_with_corner"
+        android:clickable="false"
+        android:gravity="center"
+        android:text="下载"
+        android:textColor="@color/sogou_game_sdk_color_ff8a00"
+        android:textSize="13sp" />
+
+    <com.sogou.game.sdk.views.DownloadProgress
+        android:id="@+id/sogou_game_sdk_download_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:focusable="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_horizontal_download"
+        android:secondaryProgress="0"
+        android:visibility="gone" />
+</RelativeLayout>

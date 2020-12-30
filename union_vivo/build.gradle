@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters 'armeabi'//指定要ndk需要兼容的架构(这样其他依赖包里x86,armeabi,arm-v8之类的so会被过滤掉)
+        }
+
+        lintOptions {
+            checkReleaseBuilds false
+            abortOnError false
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        }
+
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'   // aar目录
+        }
+    }
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+        api project(path: ':union4')
+    }
+
+
+    task makeJar(type: Copy) {
+        delete 'build/outputs/libs/union-vivo.jar'
+        from('build/intermediates/aar_main_jar/release/')
+        into('build/outputs/libs/')
+        include('classes.jar')
+        rename('classes.jar', 'union-vivo.jar')
+    }
+    makeJar.dependsOn(build)
+
+}

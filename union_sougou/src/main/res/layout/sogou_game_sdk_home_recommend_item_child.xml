@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sogou_game_sdk_recommend_item"
+    android:layout_width="100dp"
+    android:layout_height="185dp">
+
+    <ImageView
+        android:id="@+id/recommend_item_game_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/recommend_item_game_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recommend_item_game_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textColor="@color/sogou_game_sdk_color_111111"
+        android:textSize="@dimen/btnTextSize"
+        tools:text="诛仙青云传 说志" />
+
+    <TextView
+        android:id="@+id/recommend_item_game_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recommend_item_game_name"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:singleLine="true"
+        android:textColor="@color/sogou_game_sdk_color_888888"
+        android:textSize="10sp"
+        tools:text="角色扮演/999M" />
+
+    <com.sogou.game.sdk.views.DownloadProgressButton
+        android:id="@+id/rise_item_game_recommend_download"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_below="@id/recommend_item_game_detail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

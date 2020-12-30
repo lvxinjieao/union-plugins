@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XSDK Demo</string>
+    <!-- 退出框 -->
+    <string name="x_exit_title">退出确认</string>
+    <string name="x_exit_cancel">再玩一会</string>
+    <string name="x_exit_tip">退出游戏</string>
+    <string name="x_updatast">残忍退出</string>
+    <!-- 安装确认框 -->
+    <string name="x_confirm_title">温馨提示</string>
+    <string name="x_confirm_cancel">取　消</string>
+    <string name="x_confirm_ok">确　定</string>
+    <string name="x_plugin_install">为了更好的支付体验，首次支付，请安装支付安全插件。</string>
+    <!-- 悬浮窗 -->
+    <string name="x_f_center">账号</string>
+    <string name="x_f_libao">礼包</string>
+    <string name="x_f_switch">切换账号</string>
+    <!-- 进度动画 -->
+    <string name="x_loading">读取中</string>
+    <!-- 个人中心 -->
+    <string name="x_usercenter">个人中心</string>
+    <!-- 自动登陆 -->
+    <string name="x_autologin_useer">欢迎</string>
+    <string name="x_autologin_changeuser">切换账号</string>
+    <!-- toast提示 -->
+    <string name="x_auto_login_failed">自动登录失败</string>
+    <string name="x_login_suc">登录成功</string>
+    <string name="x_login_fail">登录失败</string>
+    <string name="x_register_suc">注册成功</string>
+    <string name="x_register_fail">注册失败</string>
+    <string name="x_register_invalid_name_tip">请输入用户名和密码</string>
+    <string name="x_get_smscode_suc">验证码发送成功</string>
+    <string name="x_send_smscode_fail">验证码发送失败,手机号码错误,或者达到当日次数上限</string>
+    <string name="x_pay_login_tip">登录失效，请先登录</string>
+    <string name="x_need_login">登录之后，才可以查看哦</string>
+    <string name="x_pay_suc">充值成功</string>
+    <string name="x_pay_fail">充值失败</string>
+    <string name="x_resetpwd_suc">密码重置成功</string>
+    <string name="x_resetpwd_fail">密码重置失败</string>
+    <string name="x_fastlogin_accout">试玩账号:</string>
+    <string name="x_fastlogin_accout_fail">快速试玩失败,请重试或注册</string>
+    <string name="x_fastlogin_pwd">密码:</string>
+    <string name="x_bind_suc">绑定成功</string>
+    <string name="x_bind_fail">绑定失败</string>
+    <string name="x_verify_fail">账号不存在,去注册一个吧!</string>
+    <string name="x_realname_auth_fail">认证失败,请输入正确信息!</string>
+    <string name="x_realname_auth_suc">认证成功!</string>
+    <!-- 登陆 -->
+    <string name="x_login_des">用户登陆</string>
+    <string name="x_login_username">用户名/手机号</string>
+    <string name="x_login_userpwd">密码</string>
+    <string name="x_login_go">进入游戏</string>
+    <string name="x_login_findpwd">忘记密码</string>
+    <string name="x_login_firststart">极速试玩</string>
+    <string name="x_login_register">账号注册</string>
+    <!-- 绑定手机 -->
+    <string name="x_bindphone_go">立即绑定</string>
+    <string name="x_bindphone_des">绑定手机</string>
+    <!-- 通用 -->
+    <string name="x_backto_login">返回登陆</string>
+    <string name="x_backto">返回</string>
+    <string name="x_common_hint_phonenumber">输入手机号码</string>
+    <!-- 找回密码 -->
+    <string name="x_function_not_impl">该功能暂未实现，请无视</string>
+    <string name="x_findpwd_des">找回密码</string>
+    <string name="x_findpwd_phonefind">通过手机号码找回</string>
+    <string name="x_findpwd_helpfind">联系客服找回</string>
+    <!-- 找回密码 手机号 -->
+    <string name="x_findpwd_phone_title">获取验证码</string>
+    <string name="x_findpwd_phone_getcode_go">发送验证码</string>
+    <string name="x_findpwd_phone_setpwd_title">设置新密码</string>
+    <string name="x_findpwd_phone_setpwd_go">确定</string>
+    <string name="x_findpwd_phone_setpwd_verify">输入验证码</string>
+    <string name="x_findpwd_phone_setpwd_pwd">输入新密码</string>
+    <!-- 找回密码 客服 -->
+    <string name="x_findpwd_help_title">联系客服</string>
+    <string name="x_findpwd_help_qq">QQ:</string>
+    <string name="x_findpwd_help_website">网址:</string>
+    <string name="x_findpwd_help_phone">电话:</string>
+    <!-- 实名认证 -->
+    <string name="x_realname_des">实名认证</string>
+    <string name="x_real_name_hint">请输入姓名</string>
+    <string name="x_real_id_hint">请输入身份证号</string>
+    <string name="x_realname_go">认证</string>
+    <!-- 用户名注册 -->
+    <string name="x_register_user_des">注册账号</string>
+    <string name="x_register_phone_des">手机注册</string>
+    <string name="x_register_nametip">输入用户名</string>
+    <string name="x_register_pwdtip">输入密码</string>
+    <string name="x_jump_register_phone">手机号注册</string>
+    <string name="x_register_go">注册</string>
+    <string name="x_jump_register_user">用户名注册</string>
+    <string name="x_phonenumber">请输入手机号码</string>
+    <string name="x_phonecode">请输入短信验证码</string>
+    <string name="x_register_phone_send">验证码</string>
+    <!-- 最近登陆 -->
+    <string name="x_user_list_title">帐号列表</string>
+
+    <string name="x_payordertype">请选择支付方式：</string>
+    <string name="x_paytitle">游戏充值</string>
+    <string name="x_paynum">支付金额:</string>
+    <string name="x_payhelp">充值遇到问题？</string>
+    <string name="x_paybtn">前往充值</string>
+    <string name="x_pay_t_alipay">支付宝</string>
+    <string name="x_pay_t_weixin">微信</string>
+    <string name="x_pay_t_union">银联</string>
+    <string name="x_pay_t_xcoin">X币</string>
+    <string name="x_pay_t_xcoin_tip">X币支付</string>
+    <string name="x_pay_select_tip">请选择一种支付方式</string>
+    <string name="x_pay_method_tip">测试环境，请用X币支付</string>
+    <string name="x_pay_no_login">请先登录</string>
+
+</resources>

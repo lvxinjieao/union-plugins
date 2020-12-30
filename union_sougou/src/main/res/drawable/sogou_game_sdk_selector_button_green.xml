@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sogou_game_sdk_color_36b00c" />
+            <corners android:radius="2.8dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sogou_game_sdk_color_73cb25" />
+            <corners android:radius="2.8dp" />
+        </shape>
+    </item>
+</selector>

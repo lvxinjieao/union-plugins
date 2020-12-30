@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
+    android:background="@drawable/sogou_game_sdk_login_toast_bg"
+    android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/sogou_game_sdk_logo_iv"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12sp"
+            android:layout_marginRight="12sp"
+            android:src="@drawable/sogou_game_sdk_logo" />
+
+        <TextView
+            android:id="@+id/sogou_game_sdk_tv_logining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:lines="1"
+            android:ellipsize="end"
+            android:maxLength="16"
+            tools:text="15210584318"
+            android:textColor="@color/sogou_game_sdk_white"
+            android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_tv_str2"
+        android:text="登录中……"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/sogou_game_sdk_white"
+        android:textSize="13sp"
+        android:layout_marginLeft="12sp"
+        android:layout_marginRight="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

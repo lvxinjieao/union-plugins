@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/sogou_game_sdk_pay_icon_loading"
+    android:duration="5"
+    android:indeterminate="true"
+    android:pivotX="50%"
+    android:pivotY="50%" >
+
+</animated-rotate>

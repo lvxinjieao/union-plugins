@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sogou_game_sdk_exit_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="242dp"
+    android:layout_marginTop="23dp"
+    android:layout_centerInParent="true"
+    android:background="@drawable/sogou_game_sdk_dialog_bg">
+    <TextView
+        android:id="@+id/sogou_game_sdk_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/sogou_game_sdk_base_dialog_top_bg"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_tv_skip"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_alignEnd="@+id/sogou_game_sdk_btn_ok"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/sogou_game_sdk_close"
+        android:clickable="true"
+        android:padding="10dp"
+        android:textColor="#FFBBBBBB"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/switch_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:background="#fff"
+        android:text="切换账号"
+        android:textColor="#FF999999"
+        android:textSize="13sp" />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:background="#FF999999"
+        />
+    <Button
+        android:id="@+id/sogou_game_sdk_btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/sogou_game_sdk_bt_red"
+        android:text="去填写"
+        android:textColor="@color/sogou_game_sdk_white"
+        android:textSize="13sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_above="@id/sogou_game_sdk_btn_ok"
+        android:layout_below="@id/sogou_game_sdk_tv_title"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/sogou_game_sdk_tv_context"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF666666"
+            android:textSize="14sp" />
+    </ScrollView>
+</RelativeLayout>

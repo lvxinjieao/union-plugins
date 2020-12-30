@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/sogou_game_sdk_item_rl_layout"
+    android:layout_height="90dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <ImageView
+        android:id="@+id/rise_item_game_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true" />
+
+    <com.sogou.game.sdk.views.DownloadProgressButton
+        android:id="@+id/rise_item_game_download"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/rise_item_game_download"
+        android:layout_toRightOf="@id/rise_item_game_image">
+
+        <TextView
+            android:id="@+id/rise_item_game_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="诛仙3.青云"
+            android:textColor="@color/sogou_game_sdk_color_111111"
+            android:textSize="@dimen/rechargeName" />
+
+        <TextView
+            android:id="@+id/rise_item_game_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:text="新版”一念乾坤”10月25日公测，重磅玩诛仙"
+            android:textColor="@color/sogou_game_sdk_color_888888"
+            android:textSize="@dimen/btnTextSize" />
+
+        <TextView
+            android:id="@+id/rise_item_game_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:singleLine="true"
+            android:text="角色扮演/253M"
+            android:textColor="@color/sogou_game_sdk_color_888888"
+            android:textSize="@dimen/btnTextSize" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/sogou_game_sdk_color_dddddd" />
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="btnTextSize">12sp</dimen>
+    <dimen name="headGameDes">120dp</dimen>
+    <dimen name="headGameTitle">120dp</dimen>
+    <dimen name="rechargeName">13sp</dimen>
+    <dimen name="sogou_agreement">10sp</dimen>
+</resources>

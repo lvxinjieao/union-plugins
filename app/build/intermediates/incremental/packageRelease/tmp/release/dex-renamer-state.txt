@@ -1,0 +1,4 @@
+#Fri Dec 18 17:13:53 CST 2020
+base.0=C\:\\studio_workspace\\union\\app\\build\\intermediates\\dex\\release\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

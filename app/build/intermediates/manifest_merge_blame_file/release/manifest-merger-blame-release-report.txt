@@ -1,0 +1,117 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.cn.demo"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="26" />
+9-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-67
+11-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:11:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:12:5-79
+12-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:12:22-76
+13    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+13-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-75
+13-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:13:22-72
+14    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+14-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:14:5-76
+14-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:14:22-73
+15    <uses-permission android:name="android.permission.GET_TASKS" />
+15-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:15:5-68
+15-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:15:22-65
+16    <uses-permission android:name="android.permission.VIBRATE" />
+16-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:16:5-66
+16-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:16:22-63
+17
+18    <application
+18-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:5:5-19:19
+19        android:name="com.u8.sdk.U8Application"
+19-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:6:9-48
+20        android:allowBackup="true"
+20-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:7:9-35
+21        android:icon="@drawable/ic_launcher"
+21-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:8:9-45
+22        android:label="@string/app_name"
+22-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:9:9-41
+23        android:supportsRtl="true"
+23-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:10:9-35
+24        android:testOnly="true"
+25        android:theme="@android:style/Theme.Light.NoTitleBar" >
+25-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:11:9-62
+26        <activity android:name="com.cn.demo.MainActivity" >
+26-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:13:9-18:20
+26-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:13:19-58
+27            <intent-filter>
+27-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:14:13-17:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:15:17-69
+28-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:15:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:16:17-77
+30-->C:\studio_workspace\union\app\src\main\AndroidManifest.xml:16:27-74
+31            </intent-filter>
+32        </activity>
+33        <!-- U8SDK相关activity复制，开始 -->
+34        <activity
+34-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:21:9-26:86
+35            android:name="com.u8.sdk.impl.activities.LoginActivity"
+35-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:22:13-68
+36            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+36-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:23:13-85
+37            android:exported="true"
+37-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:24:13-36
+38            android:screenOrientation="behind"
+38-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:25:13-47
+39            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+39-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:26:13-83
+40        <activity
+40-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:27:9-32:86
+41            android:name="com.u8.sdk.impl.activities.PayActivity"
+41-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:28:13-66
+42            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+42-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:29:13-85
+43            android:exported="true"
+43-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:30:13-36
+44            android:screenOrientation="behind"
+44-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:31:13-47
+45            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" /> <!-- 下面这些参数，原样复制即可 -->
+45-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:32:13-83
+46        <meta-data
+46-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:35:9-37:36
+47            android:name="ulog.enable"
+47-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:36:13-39
+48            android:value="true" />
+48-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:37:13-33
+49        <meta-data
+49-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:38:9-40:37
+50            android:name="ulog.level"
+50-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:39:13-38
+51            android:value="DEBUG" />
+51-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:40:13-34
+52        <meta-data
+52-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:41:9-43:36
+53            android:name="ulog.local"
+53-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:42:13-38
+54            android:value="true" />
+54-->[:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:43:13-33
+55
+56        <activity
+56-->[:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:10:9-14:80
+57            android:name="com.u8.sdk.permission.U8ProtocolActivity"
+57-->[:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:11:13-68
+58            android:configChanges="orientation|keyboardHidden|screenSize"
+58-->[:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:12:13-74
+59            android:screenOrientation="landscape"
+59-->[:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:13:13-50
+60            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+60-->[:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:14:13-77
+61    </application>
+62
+63</manifest>

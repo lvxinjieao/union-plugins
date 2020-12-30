@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.sogou.game.common.view.CircleImageView
+        android:id="@+id/sogou_game_sdk_user_info_photo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/sogou_game_sdk_home_user_photo_default" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_user_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sogou_game_sdk_user_info_photo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/sogou_game_sdk_color_111111"
+        android:textSize="15sp"
+        android:singleLine="true"
+        android:maxEms="13"
+        android:ellipsize="end"
+        tools:text="13121219356" />
+</RelativeLayout>

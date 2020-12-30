@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/sogou_game_sdk_download_item"
+    android:background="@color/sogou_game_sdk_color_white"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_download_title_count"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:textColor="@color/sogou_game_sdk_color_111111"
+        android:textSize="17sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@id/sogou_game_sdk_download_title_count"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/sogou_game_sdk_iv_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sogou_game_sdk_tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:singleLine="true"
+                android:textColor="@color/sogou_game_sdk_color_111111"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sogou_game_sdk_tv_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/sogou_game_sdk_color_888888"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/sogou_game_sdk_layout_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:id="@+id/sogou_game_sdk_download_progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:max="100"
+                        android:progress="50"
+                        android:progressDrawable="@drawable/sogou_game_sdk_drawable_download_progress" />
+
+                    <TextView
+                        android:id="@+id/sogou_game_sdk_download_space"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sogou_game_sdk_download_progressBar"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/sogou_game_sdk_color_888888"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/sogou_game_sdk_download_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/sogou_game_sdk_download_progressBar"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/sogou_game_sdk_color_888888"
+                        android:textSize="10sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <com.sogou.game.sdk.views.DownloadProgressButton
+            android:id="@+id/sogou_game_sdk_download_page_progress"
+            android:layout_width="60dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp" />
+
+    </LinearLayout>
+</RelativeLayout>

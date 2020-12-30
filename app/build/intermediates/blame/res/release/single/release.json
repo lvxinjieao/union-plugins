@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\studio_workspace\\union\\app\\build\\intermediates\\res\\merged\\release\\drawable_ic_launcher.png.flat",
+        "source": "C:\\studio_workspace\\union\\app\\src\\main\\res\\drawable\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\studio_workspace\\union\\app\\build\\intermediates\\res\\merged\\release\\layout_activity_main.xml.flat",
+        "source": "C:\\studio_workspace\\union\\app\\src\\main\\res\\layout\\activity_main.xml"
+    }
+]

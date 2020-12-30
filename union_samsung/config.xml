@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <params>
+        <param showName="AppNo" required="1" name="SM_APP_ID" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="商铺ID" required="1" name="SM_CP_ID" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="PublicKey" required="1" name="SM_PUBLIC_KEY" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="游戏名称" required="1" name="SM_GAME_NAME" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="是否测试环境" required="1" name="SM_DEBUG_MODE" desc="true|false" bWriteInManifest="0" bWriteInClient="1"/>
+    </params>
+
+    <operations>
+        <operation from="SDKManifest.xml" step="1" to="AndroidManifest.xml" type="mergeManifest" />
+        <operation from="assets" step="2" to="assets" type="copyRes" />
+        <operation from="libs" step="3" to="lib" type="copyRes" />
+        <operation from="res" step="4" to="res" type="copyRes" />
+        <operation from="root" step="5" to="" type="copyRes" />
+    </operations>
+
+    <plugins>
+        <plugin name="com.u8.sdk.SamsungUser" desc="用户登录接口" type="1" />
+        <plugin name="com.u8.sdk.SamsungPay" desc="用户支付接口" type="2" />
+    </plugins>
+
+    <dependencies>
+        <dependency name="com.google.android.material:material:1.2.0" />
+        <dependency name="androidx.constraintlayout:constraintlayout:1.1.3" />
+        <dependency name="androidx.navigation:navigation-fragment:2.3.0" />
+        <dependency name="androidx.navigation:navigation-ui:2.3.0" />
+    </dependencies>
+
+    <version>
+        <name>三星SDK</name>
+        <versionCode>1</versionCode>
+        <versionName>1.6.19</versionName>
+    </version>
+
+    <extraR>
+        <package name="androidx.appcompat.resources" />
+        <package name="androidx.appcompat" />
+        <package name="androidx.cardview" />
+        <package name="androidx.constraintlayout.widget" />
+        <package name="androidx.coordinatorlayout" />
+        <package name="androidx.core" />
+        <package name="androidx.drawerlayout" />
+        <package name="androidx.fragment" />
+        <package name="androidx.navigation.common" />
+        <package name="androidx.navigation.fragment" />
+        <package name="androidx.navigation" />
+        <package name="androidx.navigation.ui" />
+        <package name="androidx.recyclerview" />
+        <package name="androidx.transition" />
+        <package name="androidx.viewpager2" />
+        <package name="com.google.android.material" />
+        <package name="com.jumper.integration" />
+    </extraR>
+
+</config>

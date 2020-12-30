@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/sogou_game_sdk_my_gift_code_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sogou_game_sdk_my_gift_code_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_my_gift_code_tv_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawablePadding="25dp"
+        android:drawableTop="@drawable/sogou_game_sdk_image_empty"
+        android:text="暂无数据"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/sogou_game_sdk_tao_history_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/sogou_game_sdk_selector_common_rectangle_bg"
+        android:src="@drawable/sogou_game_sdk_btn_top_def"
+        android:visibility="gone" />
+</RelativeLayout>

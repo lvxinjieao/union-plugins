@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/union4" />
+            <option value="$PROJECT_DIR$/union_4399" />
+            <option value="$PROJECT_DIR$/union_aligames" />
+            <option value="$PROJECT_DIR$/union_flyme" />
+            <option value="$PROJECT_DIR$/union_huawei" />
+            <option value="$PROJECT_DIR$/union_langlun" />
+            <option value="$PROJECT_DIR$/union_lenovo" />
+            <option value="$PROJECT_DIR$/union_mobile" />
+            <option value="$PROJECT_DIR$/union_muzhiwan" />
+            <option value="$PROJECT_DIR$/union_nianwan" />
+            <option value="$PROJECT_DIR$/union_oppo" />
+            <option value="$PROJECT_DIR$/union_papa" />
+            <option value="$PROJECT_DIR$/union_samsung" />
+            <option value="$PROJECT_DIR$/union_sdk" />
+            <option value="$PROJECT_DIR$/union_sougou" />
+            <option value="$PROJECT_DIR$/union_vivo" />
+            <option value="$PROJECT_DIR$/union_xiaomi" />
+            <option value="$PROJECT_DIR$/union_ysdk" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

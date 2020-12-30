@@ -1,0 +1,294 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/home_tab_landscape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="25dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/user_center_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/user_center_imageView"
+                    style="@style/sogou_game_sdk_home_tab_info_photo"
+                    android:background="@drawable/sogou_game_sdk_icon_my" />
+
+                <TextView
+                    style="@style/sogou_game_sdk_home_tab_info_text"
+                    android:layout_below="@id/user_center_imageView"
+                    android:layout_centerHorizontal="true"
+                    android:text="个人中心" />
+
+                <ImageView
+                    android:id="@+id/user_center_imageView_red_point"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_alignRight="@id/user_center_imageView"
+                    android:layout_alignTop="@id/user_center_imageView"
+                    android:src="@drawable/sogou_game_sdk_common_msg_count"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/welfare_hall_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/welfare_hall_imageView"
+                style="@style/sogou_game_sdk_home_tab_info_photo"
+                android:background="@drawable/sogou_game_sdk_icon_welfare" />
+
+            <TextView
+                style="@style/sogou_game_sdk_home_tab_info_text"
+                android:layout_below="@id/welfare_hall_imageView"
+                android:text="福利大厅" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/customer_service_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/customer_service_imageView"
+                style="@style/sogou_game_sdk_home_tab_info_photo"
+                android:background="@drawable/sogou_game_sdk_icon_service" />
+
+            <TextView
+                style="@style/sogou_game_sdk_home_tab_info_text"
+                android:layout_below="@id/customer_service_imageView"
+                android:text="客服中心" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_hall_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/activity_hall_imageView"
+                style="@style/sogou_game_sdk_home_tab_info_photo"
+                android:background="@drawable/sogou_game_sdk_icon_activity" />
+
+            <TextView
+                style="@style/sogou_game_sdk_home_tab_info_text"
+                android:layout_below="@id/activity_hall_imageView"
+                android:text="活动大厅" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/intelligence_station_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/intelligence_station_imageView"
+                style="@style/sogou_game_sdk_home_tab_info_photo"
+                android:background="@drawable/sogou_game_sdk_icon_news" />
+
+            <TextView
+                style="@style/sogou_game_sdk_home_tab_info_text"
+                android:layout_below="@id/intelligence_station_imageView"
+                android:text="情报站" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/new_game_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/new_game_imageView"
+                style="@style/sogou_game_sdk_home_tab_info_photo"
+                android:background="@drawable/sogou_game_sdk_icon_newgame" />
+
+            <TextView
+                style="@style/sogou_game_sdk_home_tab_info_text"
+                android:layout_below="@id/new_game_imageView"
+                android:text="新游力荐" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_tab_portrait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="25dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/home_tab_portrait_item_first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/user_center_tab_portrait"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/user_center_imageView_portrait"
+                        style="@style/sogou_game_sdk_home_tab_info_photo"
+                        android:background="@drawable/sogou_game_sdk_icon_my" />
+
+                    <TextView
+                        style="@style/sogou_game_sdk_home_tab_info_text"
+                        android:layout_below="@id/user_center_imageView_portrait"
+                        android:layout_centerHorizontal="true"
+                        android:text="个人中心" />
+
+                    <ImageView
+                        android:id="@+id/user_center_imageView_red_point_portrait"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignRight="@id/user_center_imageView_portrait"
+                        android:layout_alignTop="@id/user_center_imageView_portrait"
+                        android:src="@drawable/sogou_game_sdk_common_msg_count"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/welfare_hall_tab_portrait"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/welfare_hall_imageView_portrait"
+                    style="@style/sogou_game_sdk_home_tab_info_photo"
+                    android:background="@drawable/sogou_game_sdk_icon_welfare" />
+
+                <TextView
+                    style="@style/sogou_game_sdk_home_tab_info_text"
+                    android:layout_below="@id/welfare_hall_imageView_portrait"
+                    android:text="福利大厅" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/customer_service_tab_portrait"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/customer_service_imageView_portrait"
+                    style="@style/sogou_game_sdk_home_tab_info_photo"
+                    android:background="@drawable/sogou_game_sdk_icon_service" />
+
+                <TextView
+                    style="@style/sogou_game_sdk_home_tab_info_text"
+                    android:layout_below="@id/customer_service_imageView_portrait"
+                    android:text="客服中心" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_tab_portrait_item_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_tab_portrait_item_first"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/activity_hall_tab_portrait"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/activity_hall_imageView_portrait"
+                    style="@style/sogou_game_sdk_home_tab_info_photo"
+                    android:background="@drawable/sogou_game_sdk_icon_activity" />
+
+                <TextView
+                    style="@style/sogou_game_sdk_home_tab_info_text"
+                    android:layout_below="@id/activity_hall_imageView_portrait"
+                    android:text="活动大厅" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/intelligence_station_tab_portrait"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/intelligence_station_imageView_portrait"
+                    style="@style/sogou_game_sdk_home_tab_info_photo"
+                    android:background="@drawable/sogou_game_sdk_icon_news" />
+
+                <TextView
+                    style="@style/sogou_game_sdk_home_tab_info_text"
+                    android:layout_below="@id/intelligence_station_imageView_portrait"
+                    android:text="情报站" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/new_game_tab_portrait"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/new_game_imageView_portrait"
+                    style="@style/sogou_game_sdk_home_tab_info_photo"
+                    android:background="@drawable/sogou_game_sdk_icon_newgame" />
+
+                <TextView
+                    style="@style/sogou_game_sdk_home_tab_info_text"
+                    android:layout_below="@id/new_game_imageView_portrait"
+                    android:text="新游力荐" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

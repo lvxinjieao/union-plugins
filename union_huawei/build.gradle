@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'   // aar目录
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':union4')
+    implementation 'com.huawei.hms:base:5.0.0.301'
+    implementation 'com.huawei.hms:hwid:5.0.1.301'
+    implementation 'com.huawei.hms:iap:5.0.1.300'
+    implementation 'com.huawei.hms:game:5.0.1.301'
+}
+
+task makeJar(type: Copy) {
+    delete 'build/outputs/libs/union-huawei.jar'
+    from('build/intermediates/aar_main_jar/release/')
+    into('build/outputs/libs/')
+    include('classes.jar')
+    rename('classes.jar', 'union-huawei.jar')
+}
+makeJar.dependsOn(build)
+

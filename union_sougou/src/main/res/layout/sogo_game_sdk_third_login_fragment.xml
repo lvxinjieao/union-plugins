@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sogou_game_sdk_dialog_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/head"
+        layout="@layout/sogou_game_sdk_dialog_head" />
+
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_login_third_loading"
+        style="@style/sogou_game_sdk_main_font"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sogou_game_sdk_color_white"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/sogou_game_sdk_login_third_loading"  />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:scrollbars="none" >
+
+        <TextView
+            android:id="@+id/sogou_game_sdk_reloading_btn"
+            android:layout_gravity="center"
+            android:background="@drawable/sogou_game_sdk_ads_default_icon"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content" />
+        <WebView
+            android:id="@+id/sogou_game_sdk_login_third_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </WebView>
+    </FrameLayout>
+
+</LinearLayout>

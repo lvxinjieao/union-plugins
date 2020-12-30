@@ -1,0 +1,151 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+MERGED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-48:12
+MERGED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:3:5-26
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:5:5-19:19
+MERGED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:18:5-46:19
+MERGED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:18:5-46:19
+MERGED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:9:5-15:19
+MERGED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:9:5-15:19
+	android:supportsRtl
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:9:9-41
+	android:icon
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:8:9-45
+	android:allowBackup
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:11:9-62
+	android:name
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:6:9-48
+activity#com.cn.demo.MainActivity
+ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:13:9-18:20
+	android:name
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:13:19-58
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:14:13-17:29
+action#android.intent.action.MAIN
+ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+MERGED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-7:41
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+		ADDED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+		INJECTED from C:\studio_workspace\union\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:12:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-75
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:13:22-72
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:14:22-73
+uses-permission#android.permission.GET_TASKS
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:15:5-68
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:15:22-65
+uses-permission#android.permission.VIBRATE
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:16:5-66
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:16:22-63
+activity#com.u8.sdk.impl.activities.LoginActivity
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:21:9-26:86
+	android:screenOrientation
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:25:13-47
+	android:exported
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:24:13-36
+	android:configChanges
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:23:13-85
+	android:theme
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:26:13-83
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:22:13-68
+activity#com.u8.sdk.impl.activities.PayActivity
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:27:9-32:86
+	android:screenOrientation
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:31:13-47
+	android:exported
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:30:13-36
+	android:configChanges
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:29:13-85
+	android:theme
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:32:13-83
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:28:13-66
+meta-data#ulog.enable
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:35:9-37:36
+	android:value
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:37:13-33
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:36:13-39
+meta-data#ulog.level
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:38:9-40:37
+	android:value
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:40:13-34
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:39:13-38
+meta-data#ulog.local
+ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:41:9-43:36
+	android:value
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:43:13-33
+	android:name
+		ADDED from [:union_sdk] C:\studio_workspace\union\union_sdk\build\intermediates\library_manifest\release\AndroidManifest.xml:42:13-38
+activity#com.u8.sdk.permission.U8ProtocolActivity
+ADDED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:10:9-14:80
+	android:screenOrientation
+		ADDED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:13:13-50
+	android:configChanges
+		ADDED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:12:13-74
+	android:theme
+		ADDED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:14:13-77
+	android:name
+		ADDED from [:union4] C:\studio_workspace\union\union4\build\intermediates\library_manifest\release\AndroidManifest.xml:11:13-68

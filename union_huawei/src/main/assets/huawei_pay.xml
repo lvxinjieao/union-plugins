@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<goods>
+    <good productID="wzjh001" waresid="wzjh001" />
+    <good productID="wzjh002" waresid="wzjh002"/>
+    <good productID="wzjh019" waresid="wzjh019"/>
+    <good productID="wzjh003" waresid="wzjh003"/>
+    <good productID="wzjh020" waresid="wzjh020"/>
+    <good productID="wzjh004" waresid="wzjh004"/>
+    <good productID="wzjh005" waresid="wzjh005"/>
+    <good productID="wzjh006" waresid="wzjh006"/>
+    <good productID="wzjh031" waresid="wzjh031"/>
+    <good productID="lb001" waresid="lb001"/>
+    <good productID="lb003" waresid="lb003"/>
+    <good productID="lb015" waresid="lb015"/>
+    <good productID="lb011" waresid="lb011"/>
+    <good productID="lb012" waresid="lb012"/>
+    <good productID="lb013" waresid="lb013"/>
+    <good productID="lb014" waresid="lb014"/>
+</goods>
+
+
+    <!-- 计费点id	金额	备注
+     wzjh001	6	充值6元立即获得60元宝
+     wzjh002	30	充值30元立即获得300元宝
+     wzjh019	68	充值68元立即获得680元宝
+     wzjh003	98	充值98元立即获得980元宝
+     wzjh020	128	充值128元立即获得1280元宝
+     wzjh004	198	充值198元立即获得1980元宝
+     wzjh005	328	充值328元立即获得3280元宝
+     wzjh006	648	充值648元立即获得6480元宝
+     wzjh031	2000	充值2000元立即获得20000元宝
+     lb001	1	充值直购1元礼包
+     lb003	6	充值直购6元礼包
+     lb015	18	充值直购18元礼包
+     lb011	68	充值直购68元礼包
+     lb012	128	充值直购128元礼包
+     lb013	328	充值直购328元礼包
+     lb014	648	充值直购648元礼包
+ -->

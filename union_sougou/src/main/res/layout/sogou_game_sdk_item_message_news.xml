@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sogou_game_sdk_message_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/sogou_game_sdk_message_item_icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_message_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="6dp"
+        android:singleLine="true"
+        android:textColor="@color/sogou_game_sdk_color_888888"
+        android:textSize="10sp"
+        tools:text="2015-08-09" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_message_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/sogou_game_sdk_message_item_time"
+        android:layout_toRightOf="@id/sogou_game_sdk_message_item_icon"
+        android:singleLine="true"
+        android:textColor="@color/sogou_game_sdk_color_111111"
+        android:textSize="15dp"
+        tools:text="几个简单又实用的PHP函数" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_message_item_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/sogou_game_sdk_message_item_name"
+        android:layout_below="@id/sogou_game_sdk_message_item_name"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/sogou_game_sdk_color_888888"
+        android:textSize="13sp"
+        android:ellipsize="end"
+        android:lines="2"
+        tools:text="8小时前发表" />
+
+</RelativeLayout>

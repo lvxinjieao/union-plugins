@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    
+    <params>
+        <param name="MZWAPPKEY" required="1" showName="AppKey" desc="拇指玩" bWriteInManifest="1" bWriteInClient="0" />
+        <param name="MZW_Orientation" required="1" showName="横屏或者竖屏(landscape|portrait)" desc="拇指玩" bWriteInManifest="0" bWriteInClient="1" />
+        <param name="mzw_channel" value="mzw" required="0" showName="mzw_channel" desc="拇指玩渠道标识，默认值是mzw" bWriteInManifest="1" bWriteInClient="0" />
+        <param name="mzw_cps" value="mzw" required="0" showName="mzw_cps" desc="拇指玩官方标识" bWriteInManifest="1" bWriteInClient="0" />
+         <param name="mzw_sdk" value="3391" required="0" showName="版本号" desc="拇指玩" bWriteInManifest="1" bWriteInClient="0" />
+         <param name="DEBUG" value="false" required="0" showName="调试模式" desc="拇指玩" bWriteInManifest="1" bWriteInClient="0" />
+         
+    </params>
+    
+    <operations>
+        <operation step="1" type="mergeManifest" from="SDKManifest.xml" to="AndroidManifest.xml" />
+        <operation step="2" type="copyRes" from="assets" to="assets" />
+        <operation step="3" type="copyRes" from="libs" to="lib" />
+        <operation step="4" type="copyRes" from="res" to="res" />
+        <operation step="5" type="copyRes" from="root" to=""/>
+    </operations>
+    
+    <plugins>
+        <plugin name="com.u8.sdk.MZWUser" type="1" desc="用户登录接口"/>
+        <plugin name="com.u8.sdk.MZWPay" type="2" desc="用户支付接口"/>
+    </plugins>
+    
+    <version>
+        <name>拇指玩</name>
+        <versionCode>1</versionCode>
+        <versionName>3.6.1.6</versionName>
+    </version>    
+    
+</config>

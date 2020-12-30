@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sogou_game_sdk_base_dialog_bg"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/sogou_game_sdk_fragment_nav"
+        layout="@layout/sogou_game_sdk_fragment_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sogou_game_sdk_my_message_swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/sogou_game_sdk_my_message_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <ImageButton
+            android:id="@+id/sogou_game_sdk_ib_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/sogou_game_sdk_selector_common_rectangle_bg"
+            android:background="@drawable/sogou_game_sdk_btn_top_def"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/sogou_game_sdk_tv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="25dp"
+            android:drawableTop="@drawable/sogou_game_sdk_image_empty"
+            android:text="暂时没有消息记录哦~"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

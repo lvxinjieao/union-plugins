@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingBottom="25dp"
+    android:background="@drawable/qr_code_pay_dialog">
+
+    <LinearLayout
+        android:id="@+id/sogo_game_sdk_captcha_container"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/sogo_game_sdk_phone_login_et"
+            android:layout_width="wrap_content"
+            style="@style/sogou_game_sdk_input_font"
+            android:singleLine="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:imeOptions="actionGo|flagNoExtractUi"
+            android:hint="@string/sogou_game_sdk_reg_page_captcha"
+            android:background="@drawable/sogou_game_sdk_input_background"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/sogo_game_sdk_chaptcha_img"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            android:layout_width="85dp"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sogo_game_sdk_captcha_error"
+        android:layout_below="@+id/sogo_game_sdk_captcha_container"
+        android:layout_alignLeft="@+id/sogo_game_sdk_captcha_container"
+        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/sogou_game_sdk_error_icon"
+        android:drawablePadding="5dp"
+        android:singleLine="true"
+        android:textColor="@color/sogou_game_sdk_color_red"
+        android:textSize="11sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/sogo_game_sdk_phone_login_chatpcha_btn"
+        android:layout_below="@+id/sogo_game_sdk_captcha_error"
+        android:clickable="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sogou_game_sdk_bt_red"
+        android:text="确定"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:textColor="@color/sogou_game_sdk_white"
+        android:layout_centerHorizontal="true"
+        android:layout_width="260dp"
+        android:layout_height="35dp" />
+</RelativeLayout>

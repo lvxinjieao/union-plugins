@@ -1,0 +1,14 @@
+R_DEF: Internal format may change without notice
+local
+drawable coin_icon
+drawable u8_button_qq
+drawable u8_button_wx
+drawable u8_custom_login_bg
+drawable u8_custom_login_qq
+drawable u8_custom_login_wx
+drawable u8_qq_login
+drawable u8_wx_login
+id btn_qq
+id btn_wx
+layout u8_custom_login_choice
+layout u8_layout_login_choice

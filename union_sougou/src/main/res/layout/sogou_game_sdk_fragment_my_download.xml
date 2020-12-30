@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sogou_game_sdk_base_fragment_gray_bg"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/sogou_game_sdk_fragment_nav"
+        layout="@layout/sogou_game_sdk_fragment_title" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/sogou_game_sdk_fragment_download_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sogou_game_sdk_fragment_nav"
+        android:overScrollMode="never" />
+
+    <RelativeLayout
+        android:id="@+id/sogou_game_sdk_fragment_download_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sogou_game_sdk_color_white"
+        android:layout_below="@id/sogou_game_sdk_fragment_nav"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="25dp"
+            android:drawableTop="@drawable/sogou_game_sdk_image_empty"
+            android:text="暂无数据" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/sogou_game_sdk_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/sogou_game_sdk_dialog_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/sogou_game_sdk_user_default_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:text="@string/sogou_game_sdk_head_title"
+            android:textColor="@color/sogou_game_sdk_color_888888"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/sogou_game_sdk_btn_one_click_login"
+        android:layout_width="270dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/sogou_game_sdk_bt_red"
+        android:text="@string/sogou_game_sdk_one_click_login"
+        android:textColor="@color/sogou_game_sdk_white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="@string/sougou_game_sdk_one_click_tip"
+        android:textColor="@color/sogou_game_sdk_color_888888"
+        android:textSize="13sp" />
+
+    <RelativeLayout
+        android:id="@+id/sogou_game_sdk_line_forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/sogou_game_sdk_reg_mobile_agree_btn_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:button="@drawable/sogou_game_sdk_checkbox_button"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/sogou_game_sdk_reg_mobile_agree_text"
+            style="@style/sogou_game_sdk_main_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/sogou_game_sdk_reg_mobile_agree_btn_main"
+            android:background="@color/sogou_game_sdk_transparent"
+            android:clickable="true"
+            android:text="@string/sogou_game_sdk_reg_agree"
+            android:textColor="@color/sogou_game_sdk_color_999999"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/sogou_game_sdk_reg_mobile_protocol_text"
+            style="@style/sogou_game_sdk_main_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/sogou_game_sdk_reg_mobile_agree_text"
+            android:background="@color/sogou_game_sdk_transparent"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/sogou_game_sdk_reg_protocol"
+            android:textColor="@color/sogou_game_sdk_color_999999"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/sogou_game_sdk_reg_privacy_agreement"
+            style="@style/sogou_game_sdk_main_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/sogou_game_sdk_reg_mobile_protocol_text"
+            android:background="@color/sogou_game_sdk_transparent"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/sogo_game_sdk_reg_privacy_agree"
+            android:textColor="@color/sogou_game_sdk_color_999999"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/sogou_game_sdk_color_dddddd" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_btn_other_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/sogou_game_sdk_bottom_button_bg"
+        android:gravity="center"
+        android:text="@string/sogou_game_sdk_other_login"
+        android:textColor="@color/sogou_game_sdk_color_888888"
+        android:textSize="11sp" />
+</LinearLayout>

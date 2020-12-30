@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:paddingBottom="5dp"
+    android:gravity="center_vertical"
+    android:paddingTop="5dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:gravity="center_vertical"
+        android:text="礼包码:  "
+        android:singleLine="true"
+        android:textColor="@color/sogou_game_sdk_color_111111"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/sogou_game_sdk_tao_tv_code"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:background="@drawable/sogou_game_sdk_selector_white_gray_border"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textColor="@color/sogou_game_sdk_color_111111"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/sogou_game_sdk_tao_btn_copy"
+        android:layout_width="60dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/sogou_game_sdk_bt_red"
+        android:text="复制"
+        android:textColor="@color/sogou_game_sdk_white"
+        android:textSize="13sp" />
+</LinearLayout>
