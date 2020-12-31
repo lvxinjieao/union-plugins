@@ -5,7 +5,7 @@ import android.util.Log;
 public class Logs {
 
 	public static boolean isDebug = true;
-	private static final String TAG = "U8SDK";
+	private static final String TAG = "union";
 
 	public static void i(String i) {
 		if (isDebug) {

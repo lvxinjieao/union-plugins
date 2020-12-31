@@ -15,9 +15,6 @@ import com.u8.sdk.utils.Logs;
  * 在该接口的实现方法中去完成。
  * 然后在application节点下面建立一个meta-data节点，meta-data节点的name属性为U8_Game_Application
  * value属性就是刚刚实现的类的完整类名
- * 
- * @author xiaohei
- *
  */
 public class U8Application extends Application{
 	

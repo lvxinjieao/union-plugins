@@ -19,8 +19,6 @@ import android.widget.RelativeLayout;
 
 /***
  * 闪屏界面
- * @author xiaohei
- *
  */
 public class SplashActivity extends Activity {
 

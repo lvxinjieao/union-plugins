@@ -5,8 +5,6 @@ import com.u8.sdk.base.PluginFactory;
 
 /**
  * U8 统计分析插件，目前接口适用于 【友盟游戏统计分析插件】
- *
- * @author xiaohei
  */
 public class U8Analytics {
 

@@ -39,3 +39,15 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.0'
     implementation 'androidx.navigation:navigation-ui:2.3.0'
 }
+
+
+
+task makeJar(type: Copy) {
+    delete 'build/outputs/libs/union_samsung.jar'
+    from('build/intermediates/aar_main_jar/release/')
+    into('build/outputs/libs/')
+    include('classes.jar')
+    rename('classes.jar', 'union_samsung.jar')
+}
+makeJar.dependsOn(build)
+
