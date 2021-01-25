@@ -2,18 +2,20 @@ package com.u8.sdk;
 
 import android.app.Activity;
 
-public class SamsungPay implements IPay {
+public class QuickPay implements IPay {
 
+	public QuickPay(Activity activity){
+		
+	}
+	
 	@Override
 	public boolean isSupportMethod(String methodName) {
 		return true;
 	}
 
-	public SamsungPay(Activity activity){}
-	
 	@Override
 	public void pay(PayParams data) {
-		SamsungSDK.getInstance().pay(data);
+		MyQuickSDK.getInstance().pay(data);
 	}
 
 }

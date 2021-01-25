@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<goods>
-    <!-- productID:游戏中商品固定ID -->
-    <!-- waresid:在联想后台中配置的计费点的商品ID -->
-    <good productID="1" waresid="tgly_1" />   
-    <good productID="2" waresid="tgly_1"/>     
-</goods>

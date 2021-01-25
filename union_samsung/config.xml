@@ -2,11 +2,11 @@
 <config>
 
     <params>
-        <param showName="AppNo" required="1" name="SM_APP_ID" desc="" bWriteInManifest="0" bWriteInClient="1"/>
-        <param showName="商铺ID" required="1" name="SM_CP_ID" desc="" bWriteInManifest="0" bWriteInClient="1"/>
-        <param showName="PublicKey" required="1" name="SM_PUBLIC_KEY" desc="" bWriteInManifest="0" bWriteInClient="1"/>
-        <param showName="游戏名称" required="1" name="SM_GAME_NAME" desc="" bWriteInManifest="0" bWriteInClient="1"/>
-        <param showName="是否测试环境" required="1" name="SM_DEBUG_MODE" desc="true|false" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="应用编号" required="1" name="SS_APP_ID" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="商铺编号" required="1" name="SS_CP_ID" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="支付公钥" required="1" name="SS_PUBLIC_KEY" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="游戏名称" required="1" name="SS_GAME_NAME" desc="" bWriteInManifest="0" bWriteInClient="1"/>
+        <param showName="debug模式" required="1" name="SS_DEBUG_MODE" desc="" bWriteInManifest="0" bWriteInClient="1"/>
     </params>
 
     <operations>
@@ -32,7 +32,7 @@
     <version>
         <name>三星SDK</name>
         <versionCode>1</versionCode>
-        <versionName>1.6.19</versionName>
+        <versionName>1.6.20</versionName>
     </version>
 
     <extraR>

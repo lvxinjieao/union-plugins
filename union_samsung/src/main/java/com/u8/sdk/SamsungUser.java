@@ -8,7 +8,7 @@ public class SamsungUser extends UserAdapter {
 
 	private String[] supportedMethods = {"login","switchLogin", "queryAntiAddiction"};
 	
-	public SamsungUser(Activity context){
+	public SamsungUser(Activity activity){
 		SamsungSDK.getInstance().initSDK(U8SDK.getInstance().getSDKParams());
 	}
 	
