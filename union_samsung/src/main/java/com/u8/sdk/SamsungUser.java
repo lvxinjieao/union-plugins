@@ -23,8 +23,18 @@ public class SamsungUser extends UserAdapter {
 	}
 
 	@Override
+	public void logout() {
+		SamsungSDK.getInstance().logout();
+	}
+
+	@Override
 	public void switchLogin() {
 		SamsungSDK.getInstance().login();
+	}
+
+	@Override
+	public void exit(){
+		SamsungSDK.getInstance().exit();
 	}
 
 	@Override

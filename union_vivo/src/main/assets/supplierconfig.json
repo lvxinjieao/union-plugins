@@ -1,7 +1,7 @@
 {
   "supplier":{
     "vivo":{
-      "appid":"vivo"
+      "appid":"填入开发者平台获取的APPID"
     },
     "xiaomi":{
 

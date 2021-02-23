@@ -56,12 +56,6 @@ public class SamsungSDK {
             }
 
 
-            Log.i("samsung", "appId:" + appId);
-            Log.i("samsung", "storeId :" + storeId);
-            Log.i("samsung", "publicKey :" + publicKey);
-            Log.i("samsung", "gameName :" + gameName);
-            Log.i("samsung", "debugMode :" + debugMode);
-
             SamsungAccount.setUrlMode(urlModeInt);
             SamsungAccount.setPaymentMode(urlModeInt);
 
@@ -189,43 +183,43 @@ public class SamsungSDK {
     }
 
 
-    /*
-     * 登入记录示例
-     */
-    private void doLoginRecord() {
-        // mUserID: 登录时获取的 Uid
-        // mApplyNo: 应用编号
-        // mApplyName: 应用名称
-        // oper: Login为登入, Logout为登出
-        // IAccountListener： 回调接口
-        // 返回值： 0表示调用成功， 其他表示调用失败
-        int iRet = samsungAccount.record(currUserID, appId, gameName, SamsungAccount.RecordOperation.Login, new IAccountListener() {
-            @Override
-            public void onResult(Map<ResultItem, Object> result) {
-                // 获取Uid
-                String szUid = (String) result.get(ResultItem.Uid);
-
-                // 获取回调结果
-                String szErrorCode = (String) result.get(ResultItem.ErrorCode);
-                if (szErrorCode != null && szErrorCode.compareTo(ErrorCode.OK.toString()) == 0) {
-                    // 登入成功，显示回调结果
-                } else {
-                    String szResult = String.format("Uid:%s, login record failed:%s", szUid, String.valueOf(result.get(ResultItem.ErrorMessage)));
-                    Log.e("U8SDK", "doLoginRecord failed." + szResult);
-                }
-            }
-        }, null);
-
-        if (iRet != SamsungAccount.ReturnCode.Success.ordinal()) {
-            // 登入接口调用失败，显示失败错误码
-            Log.e("U8SDK", "doLoginRecord call failed. iRet:" + iRet);
-        }
-    }
+//    /*
+//     * 登入记录示例
+//     */
+//    private void doLoginRecord() {
+//        // mUserID: 登录时获取的 Uid
+//        // mApplyNo: 应用编号
+//        // mApplyName: 应用名称
+//        // oper: Login为登入, Logout为登出
+//        // IAccountListener： 回调接口
+//        // 返回值： 0表示调用成功， 其他表示调用失败
+//        int iRet = samsungAccount.record(currUserID, appId, gameName, SamsungAccount.RecordOperation.Login, new IAccountListener() {
+//            @Override
+//            public void onResult(Map<ResultItem, Object> result) {
+//                // 获取Uid
+//                String szUid = (String) result.get(ResultItem.Uid);
+//
+//                // 获取回调结果
+//                String szErrorCode = (String) result.get(ResultItem.ErrorCode);
+//                if (szErrorCode != null && szErrorCode.compareTo(ErrorCode.OK.toString()) == 0) {
+//                    // 登入成功，显示回调结果
+//                } else {
+//                    String szResult = String.format("Uid:%s, login record failed:%s", szUid, String.valueOf(result.get(ResultItem.ErrorMessage)));
+//                    Log.e("U8SDK", "doLoginRecord failed." + szResult);
+//                }
+//            }
+//        }, null);
+//
+//        if (iRet != SamsungAccount.ReturnCode.Success.ordinal()) {
+//            // 登入接口调用失败，显示失败错误码
+//            Log.e("U8SDK", "doLoginRecord call failed. iRet:" + iRet);
+//        }
+//    }
 
     /*
     登出记录示例
      */
-    private void doLogoutRecord() {
+    public void logout() {
         // mUserID: 登录时获取的 Uid
         // mApplyNo: 应用编号
         // mApplyName: 应用名称
@@ -237,17 +231,19 @@ public class SamsungSDK {
             public void onResult(Map<ResultItem, Object> result) {
                 // 获取用户 Uid
                 String szUid = (String) result.get(ResultItem.Uid);
-
                 // 获取回调结果
                 String szErrorCode = (String) result.get(ResultItem.ErrorCode);
+
                 if (szErrorCode != null && szErrorCode.compareTo(ErrorCode.OK.toString()) == 0) {
                     // 登出成功，显示回调结果
                     String szResult = String.format("Uid:%s, logout record ok", szUid);
-
+                    Log.e("U8SDK", "logout success." + szResult);
+                    U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "logout success...");
                 } else {
                     // 登出失败，显示回调结果
                     String szResult = String.format("Uid:%s, logout record failed:%s", szUid, String.valueOf(result.get(ResultItem.ErrorMessage)));
-                    Log.e("U8SDK", "doLogoutRecord failed." + szResult);
+                    Log.e("U8SDK", "logout failed." + szResult);
+                    U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_FAIL, "logout fail...");
                 }
             }
         }, null);
@@ -255,7 +251,7 @@ public class SamsungSDK {
         if (iRet != SamsungAccount.ReturnCode.Success.ordinal()) {
             // 登出接口调用失败，显示失败错误码
             Log.e("U8SDK", "doLogoutRecord failed. iRet:" + iRet);
-
+            U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_FAIL, "logout fail...");
         }
     }
 
@@ -272,5 +268,10 @@ public class SamsungSDK {
 
     public void queryRealName() {
         U8SDK.getInstance().onResult(U8Code.CODE_ADDICTION_ANTI_RESULT, age + "");
+    }
+
+    public void exit() {
+        U8SDK.getInstance().getContext().finish();
+        System.exit(0);
     }
 }
