@@ -1,8 +1,5 @@
 package com.u8.sdk;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -10,23 +7,25 @@ import com.u8.sdk.utils.EncryptUtils;
 import com.u8.sdk.utils.U8HttpUtils;
 import com.u8.sdk.vivo.HTTPSTrustManager;
 import com.u8.sdk.vivo.VivoSignUtils;
-import com.vivo.unionsdk.open.OrderResultEventHandler;
+import com.vivo.unionsdk.open.MissOrderEventHandler;
 import com.vivo.unionsdk.open.OrderResultInfo;
-import com.vivo.unionsdk.open.QueryOrderCallback;
 import com.vivo.unionsdk.open.VivoAccountCallback;
 import com.vivo.unionsdk.open.VivoConstants;
 import com.vivo.unionsdk.open.VivoExitCallback;
 import com.vivo.unionsdk.open.VivoPayCallback;
 import com.vivo.unionsdk.open.VivoPayInfo;
-import com.vivo.unionsdk.open.VivoQueryOrderInfo;
 import com.vivo.unionsdk.open.VivoRealNameInfoCallback;
 import com.vivo.unionsdk.open.VivoRoleInfo;
 import com.vivo.unionsdk.open.VivoUnionSDK;
-import com.vivo.unionsdk.open.VivoConstants.JumpType;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ViVoSDK {
@@ -70,50 +69,119 @@ public class ViVoSDK {
             Log.i("U8SDK", "appID:" + appID);
             Log.i("U8SDK", "appKey:" + appKey);
 
-            VivoUnionSDK.registerOrderResultEventHandler(new OrderResultEventHandler() {
+            VivoUnionSDK.registerMissOrderEventHandler(U8SDK.getInstance().getApplication(), new MissOrderEventHandler() {
+
+
                 @Override
-                public void process(OrderResultInfo orderResultInfo) {
-                    Log.i("U8SDK", "vivo sdk order process result: " + orderResultInfo.toString());
-                    queryOrderResult(orderResultInfo.getCpOrderNumber(), orderResultInfo.getTransNo(),
-                            orderResultInfo.getProductPrice(), new QueryOrderCallback() {
-                                @Override
-                                public void onResult(int i, OrderResultInfo orderResultInfo) {
-
-                                    if (orderResultInfo != null) {
-                                        Log.d("U8SDK", "vivo sdk called success order result. " + orderResultInfo.getCpOrderNumber());
-                                    } else {
-                                        Log.d("U8SDK", "vivo sdk called failed order result. " + i);
-                                    }
-
-                                    switch (i) {
-                                        case OrderResultInfo.STATUS_PAY_SUCCESS:// 查询到订单支付成功
-                                            updateU8Order(orderResultInfo);
-                                            U8SDK.getInstance().onResult(U8Code.CODE_CHECK_ORDER_SUCCESS, orderResultInfo.getCpOrderNumber());
-                                            break;
-                                        case OrderResultInfo.STATUS_PAY_UNTREATED:// 查询接口传参错误
-                                            break;
-                                    }
-                                }
-                            });
+                public void process(List list) {
+                    /**
+                     * 注意这里是查到未核销的订单
+                     * 需要调用自己的逻辑完成道具核销后再调用我们的订单完成接口
+                     * 切记！！！一定要走自己逻辑发送完道具后再调用完成接口！！！切记！切记！
+                     * ！！！游戏根据订单号检查、补发商品！！！
+                     * 自行完成补发逻辑  一定要完成道具补发后才能调用完成接口 此处一定要注意！！！
+                     * 如果不处理直接调用完成则掉单无法解决
+                     * 注意！！！注意！！！
+                     * 游戏侧用你们自己的订单号cpOrderNumber来校验是否完成发货  发货完成上报我们的订单号transNo
+                     */
+                    checkOrder(list);
                 }
             });
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
+
+    public void checkOrder(final List<OrderResultInfo> list) {
+        if (list == null || list.isEmpty()) {
+            return;
+        }
+        updateU8Order(list);
+    }
+
+
+    public void updateU8Order(final List<OrderResultInfo> orders) {
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                try {
+                    for (OrderResultInfo order : orders) {
+                        /**
+                         * ！！！游戏根据订单号检查、补发商品！！！
+                         * 自行完成补发逻辑  一定要完成道具补发后才能调用完成接口 此处一定要注意！！！
+                         * 如果不处理直接调用完成则掉单无法解决
+                         * 此处只是用log演示处理  真正的逻辑需要游戏自己处理补发道具后再调用完成
+                         * 注意！！！注意！！！
+                         */
+                        Log.i("U8SDK", "updateU8Order now to process: " + order.getCpOrderNumber());
+                        resendMissingOrder(order);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void resendMissingOrder(OrderResultInfo orderInfo) {
+        String time = getCurrTime();
+        StringBuilder sb = new StringBuilder();
+        sb.append("cpOrderNumber=").append(orderInfo.getCpOrderNumber())
+                .append("&orderAmount=").append(orderInfo.getProductPrice())
+                .append("&orderNumber=").append(orderInfo.getTransNo())
+                .append("&payTime=").append(time)
+                .append(appKey);
+
+        String sign = EncryptUtils.md5(sb.toString());
+
+        Log.d("U8SDK", "vivo u8 update order sign str:" + sb.toString() + "; sign:" + sign);
+
+        final String url = U8SDK.getInstance().getU8ServerURL() + "/pay/vivo/updateOrder";
+        Map<String, String> parmas = new HashMap<String, String>();
+        parmas.put("cpOrderNumber", orderInfo.getCpOrderNumber());
+        parmas.put("orderAmount", orderInfo.getProductPrice());
+        parmas.put("orderNumber", orderInfo.getTransNo());
+        parmas.put("payTime", time);
+        parmas.put("signature", sign);
+
+        String result = U8HttpUtils.httpPost(url, parmas);
+
+        Log.d("U8SDK", "vivo u8 update order result:" + result);
+
+        if ("success".equals(result)) {
+            List<String> list = new ArrayList<>();
+            list.add(orderInfo.getTransNo());
+            VivoUnionSDK.reportOrderComplete(list, true);
+        }
+    }
+
+    private String getCurrTime() {
+        long time = System.currentTimeMillis();//long now = android.os.SystemClock.uptimeMillis();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(time);
+        String str = format.format(date);
+        return str;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////
+
     public void initOnCreate() {
+
         VivoUnionSDK.registerAccountCallback(U8SDK.getInstance().getContext(), new VivoAccountCallback() {
 
             @Override
             public void onVivoAccountLogout(int arg0) {
-                U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "登出成功");
+                U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "logout success");
             }
 
             @Override
             public void onVivoAccountLoginCancel() {
-                Log.d("U8SDK", "login canceled.");
                 U8SDK.getInstance().onLoginResult(U8Code.CODE_LOGIN_FAIL, "login canceled");
             }
 
@@ -152,18 +220,12 @@ public class ViVoSDK {
         VivoUnionSDK.getRealNameInfo(U8SDK.getInstance().getContext(), new VivoRealNameInfoCallback() {
             @Override
             public void onGetRealNameInfoSucc(boolean isRealname, int age) {
-
-                Log.d("U8SDK", "vivo real name query success.isRealName:" + isRealname + ";age:" + age);
-                U8SDK.getInstance().onResult(
-                        fromUICalled ? U8Code.CODE_REAL_NAME_REG_SUC : U8Code.CODE_ADDICTION_ANTI_RESULT, age + "");
-
+                U8SDK.getInstance().onResult(fromUICalled ? U8Code.CODE_REAL_NAME_REG_SUC : U8Code.CODE_ADDICTION_ANTI_RESULT, age + "");
             }
 
             @Override
             public void onGetRealNameInfoFailed() {
-                Log.e("U8SDK", "vivo real name query failed.");
-                U8SDK.getInstance().onResult(
-                        fromUICalled ? U8Code.CODE_REAL_NAME_REG_SUC : U8Code.CODE_ADDICTION_ANTI_RESULT, "0");
+                U8SDK.getInstance().onResult(fromUICalled ? U8Code.CODE_REAL_NAME_REG_SUC : U8Code.CODE_ADDICTION_ANTI_RESULT, "0");
             }
         });
 
@@ -181,15 +243,13 @@ public class ViVoSDK {
 
             @Override
             public void onExitCancel() {
-                // TODO Auto-generated method stub
-
             }
         });
 
     }
 
     public void openForum() {
-        VivoUnionSDK.jumpTo(JumpType.FORUM);
+        VivoUnionSDK.jumpTo(VivoConstants.JumpType.FORUM);
     }
 
     public void pay(final PayParams params) {
@@ -199,50 +259,42 @@ public class ViVoSDK {
 
             String sign = getSignature(params);
 
-            VivoPayInfo payInfo = new VivoPayInfo.Builder().setAppId(appID).setCpOrderNo(params.getOrderID())
-                    .setExtInfo(params.getOrderID()).setNotifyUrl(params.getExtension())
-                    .setOrderAmount(params.getPrice() * 100 + "").setProductDesc(params.getProductDesc())
-                    .setProductName(params.getProductName()).setBalance(params.getCoinNum() + "")
-                    .setVipLevel(params.getVip() + "").setRoleId(params.getRoleId() + "")
-                    .setRoleName(params.getRoleName() + "").setRoleLevel(params.getRoleLevel() + "")
-                    .setServerName(params.getServerName() + "").setParty("none").setVivoSignature(sign)
+            VivoPayInfo payInfo = new VivoPayInfo.Builder()
+                    .setAppId(appID)
+                    .setCpOrderNo(params.getOrderID())
+                    .setExtInfo(params.getOrderID())
+                    .setNotifyUrl(params.getExtension())
+                    .setOrderAmount(params.getPrice() * 100 + "")
+                    .setProductDesc(params.getProductDesc())
+                    .setProductName(params.getProductName())
+                    .setBalance(params.getCoinNum() + "")
+                    .setVipLevel(params.getVip() + "")
+                    .setRoleId(params.getRoleId() + "")
+                    .setRoleName(params.getRoleName() + "")
+                    .setRoleLevel(params.getRoleLevel() + "")
+                    .setServerName(params.getServerName() + "")
+                    .setParty("none")
+                    .setVivoSignature(sign)
                     .setExtUid(TextUtils.isEmpty(openID) ? "" : openID).build();
-
-            Map t = payInfo.toMapParams();
-            for (Object en : t.keySet()) {
-                Log.d("U8SDK", "payInfo=>  " + en + "=" + t.get(en));
-            }
 
             VivoUnionSDK.payV2(U8SDK.getInstance().getContext(), payInfo, new VivoPayCallback() {
 
                 @Override
                 public void onVivoPayResult(int code, OrderResultInfo orderResultInfo) {
 
-                    Log.d("U8SDK", "vivo sdk pay result. code:" + code + ";order:" + orderResultInfo.getTransNo());
-
                     if (code == VivoConstants.PAYMENT_RESULT_CODE_SUCCESS) {
-                        VivoUnionSDK.sendCompleteOrderNotification(orderResultInfo);
+                        try {
+                            List<String> list = new ArrayList<>();
+                            list.add(orderResultInfo.getTransNo());
+                            VivoUnionSDK.reportOrderComplete(list, false);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_SUCCESS, "pay success");
                     } else if (code == VivoConstants.PAYMENT_RESULT_CODE_CANCEL) {
                         U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_CANCEL, "pay canceled");
                     } else if (code == VivoConstants.PAYMENT_RESULT_CODE_UNKNOWN) {
-                        Log.d("U8SDK", "vivo to query order status.");
-
-                        queryOrderResult(params.getOrderID(), orderResultInfo.getTransNo(), params.getPrice() * 100 + "", new QueryOrderCallback() {
-
-                            @Override
-                            public void onResult(int i, OrderResultInfo orderResultInfo) {
-                                switch (i) {
-                                    case OrderResultInfo.STATUS_PAY_SUCCESS:// 查询到订单支付成功
-                                        updateU8Order(orderResultInfo);
-                                        U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_SUCCESS, "sdk pay success");
-                                        break;
-                                    case OrderResultInfo.STATUS_PAY_UNTREATED:// 查询接口传参错误
-
-                                        break;
-                                }
-                            }
-                        });
+                        U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_FAIL, "未知状态，请查询订单");
                     } else {
                         U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_FAIL, "sdk pay failed.");
                     }
@@ -274,78 +326,4 @@ public class ViVoSDK {
         return VivoSignUtils.getVivoSign(params, this.appKey);
     }
 
-    public void queryOrderResult(String cpOrderNumber, String vivoTransNo, String price,
-                                 QueryOrderCallback queryOrderCallback) {
-
-        final HashMap<String, String> params = new HashMap<String, String>();
-        params.put("appId", appID);
-        params.put("cpId", cpID);
-        params.put("cpOrderNumber", cpOrderNumber);
-        params.put("orderNumber", vivoTransNo);
-        params.put("orderAmount", price);
-        params.put("version", "1.0.0");
-        final String signature = VivoSignUtils.getVivoSign(params, appKey);
-
-        VivoQueryOrderInfo.Builder builder = new VivoQueryOrderInfo.Builder(signature);
-        builder.appId(appID).cpId(cpID).cpOrderNumber(cpOrderNumber).orderNumber(vivoTransNo).orderAmount(price);
-
-        VivoUnionSDK.queryOrderResult(builder.build(), queryOrderCallback);
-    }
-
-    public void updateU8Order(final OrderResultInfo orderInfo) {
-
-        Log.d("U8SDK", "begin update u8 order...");
-
-        if (orderInfo == null) {
-            Log.d("U8SDK", "updateU8Order failed. orderInfo is null");
-            return;
-        }
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                try {
-
-                    String time = getCurrTime();
-
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("cpOrderNumber=").append(orderInfo.getCpOrderNumber())
-                            .append("&orderAmount=").append(orderInfo.getProductPrice())
-                            .append("&orderNumber=").append(orderInfo.getTransNo())
-                            .append("&payTime=").append(time).append(appKey);
-
-                    String sign = EncryptUtils.md5(sb.toString());
-
-                    Log.d("U8SDK", "vivo u8 update order sign str:" + sb.toString() + "; sign:" + sign);
-
-                    final String url = U8SDK.getInstance().getU8ServerURL() + "/pay/vivo/updateOrder";
-                    Map<String, String> parmas = new HashMap<String, String>();
-                    parmas.put("cpOrderNumber", orderInfo.getCpOrderNumber());
-                    parmas.put("orderAmount", orderInfo.getProductPrice());
-                    parmas.put("orderNumber", orderInfo.getTransNo());
-                    parmas.put("payTime", time);
-                    parmas.put("signature", sign);
-
-                    String result = U8HttpUtils.httpPost(url, parmas);
-
-                    Log.d("U8SDK", "vivo u8 update order result:" + result);
-
-                    if ("success".equals(result)) {
-                        VivoUnionSDK.sendCompleteOrderNotification(orderInfo);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
-    private String getCurrTime() {
-        long time = System.currentTimeMillis();// long now = android.os.SystemClock.uptimeMillis();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date d1 = new Date(time);
-        String t1 = format.format(d1);
-        return t1;
-    }
 }
