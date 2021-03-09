@@ -17,19 +17,19 @@ from xml.dom import minidom
 import codecs
 import sys
 import sdk_helper
+import log_utils
 
 androidNS = 'http://schemas.android.com/apk/res/android'
 
 
 def execute(channel, decompileDir, packageName):
-    # checkURL(channel, decompileDir, packageName)
 
-    sdk_helper.setPropOnApplicationNode(decompileDir, '{' + androidNS + '}usesCleartextTraffic',
-                                        'true')
+    #checkURL(channel, decompileDir, packageName)
+
+    sdk_helper.setPropOnApplicationNode(decompileDir, '{'+androidNS+'}usesCleartextTraffic', 'true')
 
     # compileWXEntryActivity(channel, decompileDir, packageName)
-    sdk_helper.compileJava2Smali(channel, decompileDir, packageName + ".wxapi", 'WXEntryActivity',
-                                 ["YSDK.jar"])
+    # sdk_helper.compileJava2Smali(channel, decompileDir, packageName+".wxapi", 'WXEntryActivity', ["YSDK.jar"])
 
     modifyManifest(channel, decompileDir, packageName)
 
@@ -37,26 +37,36 @@ def execute(channel, decompileDir, packageName):
 
     generateYSDKConfig(channel, decompileDir, packageName)
 
+    startActivity = sdk_helper.getStartActivity(decompileDir)
+    log_utils.debug("the start activity is " + startActivity)
+
+    sdk_helper.addOrUpdateMetaData(decompileDir, "MAIN_ACTIVITY", startActivity)
+
     return 0
 
 
 def checkURL(channel, decompileDir, packageName):
+
     game = config_utils.currGame
 
     u8serverUrl = None
 
     if "u8server_url" in game:
-        u8serverUrl = game["u8server_url"]
+        u8serverUrl = game["u8server_url"]  
 
     local_config = config_utils.getLocalConfig()
     if u8serverUrl is None and "u8server_url" in local_config:
-        u8serverUrl = local_config['u8server_url']
-
+        u8serverUrl = local_config['u8server_url']   
+        
+    
     if u8serverUrl is None:
         return
 
+
     while u8serverUrl.endswith('/'):
+
         u8serverUrl = u8serverUrl[0:-1]
+
 
     if 'params' in channel:
         params = channel['params']
@@ -64,17 +74,22 @@ def checkURL(channel, decompileDir, packageName):
             if p['name'] == 'WG_QUERY_URL':
                 url = p['value']
                 if not url.startswith('http'):
-                    # p['WG_QUERY_URL'] = u8serverUrl + url
+                    #p['WG_QUERY_URL'] = u8serverUrl + url
                     p['value'] = u8serverUrl + url
 
             elif p['name'] == 'WG_PAY_URL':
                 url = p['value']
                 if not url.startswith('http'):
-                    # p['WG_PAY_URL'] = u8serverUrl + url
+                    #p['WG_PAY_URL'] = u8serverUrl + url
                     p['value'] = u8serverUrl + url
 
 
+    
+                    
+
+
 def generateYSDKConfig(channel, decompileDir, packageName):
+
     qqAppID = ""
     wxAppID = ""
     offerID = ""
@@ -99,12 +114,13 @@ def generateYSDKConfig(channel, decompileDir, packageName):
     if realName is None or len(realName) == 0:
         realName = "true"
 
-    cfStr = cfStr + "QQ_APP_ID=" + qqAppID + "\n"
-    cfStr = cfStr + "WX_APP_ID=" + wxAppID + "\n"
-    cfStr = cfStr + "OFFER_ID=" + offerID + "\n"
-    cfStr = cfStr + "YSDK_URL=" + ysdkUrl + "\n"
-    cfStr = cfStr + "YSDK_ANTIADDICTION_SWITCH=" + realName + "\n"
+    cfStr = cfStr + "QQ_APP_ID=" + qqAppID+"\n"
+    cfStr = cfStr + "WX_APP_ID=" + wxAppID+"\n"
+    cfStr = cfStr + "OFFER_ID=" + offerID+"\n"
+    cfStr = cfStr + "YSDK_URL=" + ysdkUrl+"\n"
+    cfStr = cfStr + "YSDK_ANTIADDICTION_SWITCH=" + realName+"\n"
     cfStr = cfStr + "YSDK_ICON_SWITCH=true\n"
+
 
     cfStr = cfStr + "YSDK_IMMERSIVE_ICON_SWITCH=true\n"
     cfStr = cfStr + "YSDK_MSG_BOX_SWITCH=true\n"
@@ -121,6 +137,7 @@ def generateYSDKConfig(channel, decompileDir, packageName):
     f.close()
 
 
+
 def modifyManifest(channel, decompileDir, packageName):
     qqAppID = ""
     wxAppID = ""
@@ -133,7 +150,9 @@ def modifyManifest(channel, decompileDir, packageName):
             elif param['name'] == 'WX_APP_ID':
                 wxAppID = param['value']
 
+
     manifest = decompileDir + '/AndroidManifest.xml'
+
 
     file_utils.modifyFileContent(manifest, '${applicationId}', packageName)
     file_utils.modifyFileContent(manifest, '${YSDK_QQ_APPID}', qqAppID)
@@ -178,28 +197,30 @@ def modifyManifest(channel, decompileDir, packageName):
     #                     dataNode.set(scheme, wxAppID)
     #                     break
 
+
     # tree.write(manifest, 'UTF-8')
 
 
+
+
 def compileWXEntryActivity(channel, decompileDir, packageName):
+
     sdkDir = decompileDir + '/../sdk/' + channel['sdk']
     if not os.path.exists(sdkDir):
-        file_utils.printF("The sdk temp folder is not exists. path:" + sdkDir)
+        file_utils.printF("The sdk temp folder is not exists. path:"+sdkDir)
         return 1
 
     extraFilesPath = sdkDir + '/extraFiles'
     relatedJar = os.path.join(extraFilesPath, 'YSDK.jar')
     WXPayEntryActivity = os.path.join(extraFilesPath, 'WXEntryActivity.java')
-    file_utils.modifyFileContent(WXPayEntryActivity, 'com.example.wegame.wxapi',
-                                 packageName + ".wxapi")
+    file_utils.modifyFileContent(WXPayEntryActivity, 'com.example.wegame.wxapi', packageName+".wxapi")
 
     splitdot = ';'
     if platform.system() == 'Darwin' or platform.system() == 'Linux':
         splitdot = ':'
 
-    cmd = '"%sjavac" -source 1.7 -target 1.7 "%s" -classpath "%s"%s"%s"' % (
-        file_utils.getJavaBinDir(), WXPayEntryActivity, relatedJar, splitdot,
-        file_utils.getFullToolPath('android.jar'))
+    cmd = '"%sjavac" -source 1.7 -target 1.7 "%s" -classpath "%s"%s"%s"' % (file_utils.getJavaBinDir(), WXPayEntryActivity, relatedJar, splitdot, file_utils.getFullToolPath('android.jar'))
+
 
     ret = file_utils.execFormatCmd(cmd)
     if ret:
@@ -221,15 +242,14 @@ def compileWXEntryActivity(channel, decompileDir, packageName):
 
     dxTool = file_utils.getFullToolPath("/lib/dx.jar")
 
-    cmd = file_utils.getJavaCMD() + ' -jar -Xmx512m -Xms512m "%s" --dex --output="%s" "%s"' % (
-        dxTool, targetDexPath, srcDir)
+    cmd = file_utils.getJavaCMD() + ' -jar -Xmx512m -Xms512m "%s" --dex --output="%s" "%s"' % (dxTool, targetDexPath, srcDir)
 
     ret = file_utils.execFormatCmd(cmd)
 
     if ret:
         return 1
 
-    ret = sdk_helper.dex2smali(targetDexPath, decompileDir + '/smali', "baksmali.jar")
+    ret = sdk_helper.dex2smali(targetDexPath, decompileDir+'/smali', "baksmali.jar")
 
     if ret:
         return 1
@@ -241,7 +261,7 @@ def modifyActivityForSingleTop(channel, decompileDir, packageName):
     ET.register_namespace('android', androidNS)
     key = '{' + androidNS + '}launchMode'
     keyName = '{' + androidNS + '}name'
-    screenKey = '{' + androidNS + '}screenOrientation'
+    screenKey = '{'+androidNS+'}screenOrientation'
 
     tree = ET.parse(manifestFile)
     root = tree.getroot()
@@ -294,6 +314,7 @@ def modifyActivityForSingleTop(channel, decompileDir, packageName):
             screenOrientation = activityNode.get(screenKey)
             break
 
+
     activityNodes = applicationNode.findall('activity')
     if activityNodes != None and len(activityNodes) > 0:
         for activityNode in activityNodes:
@@ -307,6 +328,13 @@ def modifyActivityForSingleTop(channel, decompileDir, packageName):
 
                 break
 
+
+
     tree.write(manifestFile, 'UTF-8')
 
-    return 0
+    return 0    
+
+
+    
+
+

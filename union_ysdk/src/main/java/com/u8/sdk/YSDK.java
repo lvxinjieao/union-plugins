@@ -45,6 +45,7 @@ import com.tencent.ysdk.framework.common.BaseRet;
 import com.tencent.ysdk.framework.common.eFlag;
 import com.tencent.ysdk.framework.common.ePlatform;
 import com.tencent.ysdk.module.AntiAddiction.model.AntiAddictRet;
+import com.tencent.ysdk.module.immersiveicon.ImmersiveIconApi;
 import com.tencent.ysdk.module.pay.PayItem;
 import com.tencent.ysdk.module.pay.PayListener;
 import com.tencent.ysdk.module.pay.PayRet;
@@ -54,34 +55,38 @@ import com.tencent.ysdk.module.share.impl.IScreenImageCapturer;
 import com.tencent.ysdk.module.share.impl.ShareRet;
 import com.tencent.ysdk.module.user.UserApi;
 import com.tencent.ysdk.module.user.UserLoginRet;
-//import com.u8.sdk.permission.U8AutoPermission;
-import com.u8.sdk.permission.utils.OSUtils;
 import com.u8.sdk.utils.EncryptUtils;
 import com.u8.sdk.utils.ResourceHelper;
 import com.u8.sdk.utils.U8HttpUtils;
+import com.u8.sdk.ysdk.permission.PermissionFail;
 import com.u8.sdk.ysdk.permission.PermissionGen;
+import com.u8.sdk.ysdk.permission.PermissionSuccess;
+import com.u8.sdk.ysdk.permission.utils.OSUtils;
 import com.u8.sdk.ysdk.permission.utils.PermissionUtils;
 
 public class YSDK {
 
     private static final int CODE_YSDK_PERMISSION = 1000024;
 
-    public static final int LOGIN_TYPE_QQ = 1;      //QQ登录类型
-    public static final int LOGIN_TYPE_WX = 2;      //微信登录类型
+    public static final int LOGIN_TYPE_QQ = 1;        //QQ登录类型
+    public static final int LOGIN_TYPE_WX = 2;        //微信登录类型
+    public static final int LOGIN_TYPE_GUEST = 3;    //游客登录类型
 
-    public static final int REQ_TYPE_QUERY = 1;     //查询余额
-    public static final int REQ_TYPE_CHARGE = 2;    //扣款
+    public static final int REQ_TYPE_QUERY = 1;        //查询余额
+    public static final int REQ_TYPE_CHARGE = 2;        //扣款
 
-    private int payType = 1;                        //支付类型，1：游戏币托管模式；2：道具直购模式
-    private boolean fixedPay;                       //是否定额支付
-    private boolean multiServers;                   //是否开启了分区
-    private int ratio;                              //兑换比例
-    private String coinIconName;                    //元宝名称
-    private String queryUrl;                        //查询地址
-    private String payUrl;                          //支付地址
-    private String appKey;                          //沙箱appkey
-    private boolean isCustomLogin = false;          //是否使用自定义布局
-    public boolean useLogin = true;                 //启用登录
+    private int payType = 1;            //支付类型，1：游戏币托管模式；2：道具直购模式
+    private boolean fixedPay;
+    private boolean multiServers;
+    private int ratio;
+    private String coinIconName;
+    private String queryUrl;
+    private String payUrl;
+    private String appKey;
+    private boolean guestLogin = false;    //是否支持游客登录
+    private boolean isCustomLogin = false;    //是否使用自定义布局
+
+    public boolean useLogin = true;            //是否登录
 
     private boolean logined = false;
     public int lastLoginType = 0;
@@ -97,7 +102,6 @@ public class YSDK {
     public boolean isLoginCustom = false;
 
     private boolean isPermissioned = true;
-
     private boolean loginAfterPermission = false;
 
     public Activity lastActivityWaithDestroy = null;
@@ -107,9 +111,7 @@ public class YSDK {
 
     final String[] permissions = new String[]{
             Manifest.permission.READ_PHONE_STATE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.READ_SMS
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
     private static YSDK instance;
@@ -131,6 +133,7 @@ public class YSDK {
         ratio = params.getInt("WG_RATIO");
         appKey = params.getString("M_APP_KEY");
         payType = params.getInt("M_PAY_TYPE");
+        guestLogin = params.getBoolean("M_GUEST_LOGIN");
         isCustomLogin = params.getBoolean("M_CUSTOM_LOGIN");
         if (params.contains("M_USE_LOGIN")) {
             useLogin = params.getBoolean("M_USE_LOGIN");
@@ -142,13 +145,19 @@ public class YSDK {
         return logined;
     }
 
+    public boolean isSupportGuestLogin() {
+        return guestLogin;
+    }
+
     public boolean isCustomLogin() {
         return isCustomLogin;
     }
 
     public void initSDK(SDKParams params) {
+
+
         if (!inited) {
-            Log.d("U8SDK", "begin init ysdk");
+            Log.d("U8SDK", "初始化参数");
             parseSDKParams(params);
 
             U8SDK.getInstance().setActivityCallback(new ActivityCallbackAdapter() {
@@ -162,53 +171,48 @@ public class YSDK {
                 @Override
                 public void onStop() {
                     Log.d("U8SDK", "onStop call in ysdk");
-                    YSDKApi.onStop(U8SDK.getInstance().getContext());
                 }
 
 
                 @Override
                 public void onResume() {
                     Log.d("U8SDK", "onResume call in ysdk");
-                    YSDKApi.onResume(U8SDK.getInstance().getContext());
                 }
 
                 @Override
                 public void onRestart() {
                     Log.d("U8SDK", "onRestart call in ysdk");
-                    YSDKApi.onRestart(U8SDK.getInstance().getContext());
                 }
 
                 @Override
                 public void onPause() {
                     Log.d("U8SDK", "onPause call in ysdk");
-                    YSDKApi.onPause(U8SDK.getInstance().getContext());
                 }
 
                 @Override
                 public void onNewIntent(Intent newIntent) {
                     Log.d("U8SDK", "onNewIntent call in ysdk");
-                    YSDKApi.handleIntent(newIntent);
                 }
 
                 @Override
                 public void onDestroy() {
                     Log.d("U8SDK", "onDestroy call in ysdk");
-                    YSDKApi.onDestroy(U8SDK.getInstance().getContext());
                 }
 
                 @Override
                 public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-                    Log.d("U8SDK", "onRequestPermissionsResult for ysdk");
+                    Log.d("U8SDK", "onRequestPermissionResult for ysdk");
                     PermissionGen.onCustomRequestPermissionsResult(YSDK.this, requestCode, permissions, grantResults);
                 }
             });
         }
 
-        Log.d("U8SDK", "begin init ysdk in onCreate...");
+
+        Log.d("U8SDK", "初始化 YSDK");
         initYSDK();
-        //权限申请
+
         if (PermissionUtils.isOverMarshmallow() || OSUtils.isMIUI()) {
-            Log.d("U8SDK", "begin to request permissions for ysdk");
+            Log.d("U8SDK", "申请权限");
             checkAndRequestPermission();
         }
     }
@@ -229,11 +233,16 @@ public class YSDK {
                             .permissions(permissions).request();
                 }
             }, 1500);
+
+
         } else {
             Log.d("U8SDK", "ysdk does not need to request permissions.");
         }
+
+
     }
 
+    @PermissionSuccess(requestCode = CODE_YSDK_PERMISSION)
     public void permissionReqSuccess() {
         Log.d("U8SDK", "permission request success. now to init ysdk.");
         this.isPermissioned = true;
@@ -246,9 +255,10 @@ public class YSDK {
     }
 
     @SuppressLint("InlinedApi")
+    @PermissionFail(requestCode = CODE_YSDK_PERMISSION)
     public void permissionReqFailed() {
         Log.e("U8SDK", "ysdk permissions request failed.");
-        showPermissionDialog(U8SDK.getInstance().getContext());
+        //showPermissionDialog(U8SDK.getInstance().getContext());
     }
 
 
@@ -322,7 +332,6 @@ public class YSDK {
 
     private void initYSDK() {
 
-        Log.d("U8SDK", "begin call onCreate of ysdk...");
         try {
             YSDKApi.onCreate(U8SDK.getInstance().getContext());
         } catch (Exception e) {
@@ -341,12 +350,13 @@ public class YSDK {
             YSDKApi.setScreenCapturer(new IScreenImageCapturer() {
 
                 @Override
-
                 public Bitmap caputureImage() {
                     try {
                         String path = U8SDK.getInstance().getContext().getExternalFilesDir("screenshot").getAbsoluteFile() + "/" + SystemClock.currentThreadTimeMillis() + ".png";
+
                         Log.d("U8SDK", "curr thread:" + Thread.currentThread().getName());
                         Log.d("U8SDK", "ysdk capture img called. path:" + path);
+
                         U8SDK.getInstance().onResult(U8Code.CODE_CAPTURE_IMG, path);
                         File f = new File(path);
                         long t = SystemClock.currentThreadTimeMillis();
@@ -362,18 +372,19 @@ public class YSDK {
                             options.inSampleSize = calculateInSampleSize(options);
                             options.inJustDecodeBounds = false;
                             Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+
                             return bitmap;
                         }
+
                         return null;
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     return null;
                 }
-
             });
 
-            YSDKApi.handleIntent(U8SDK.getInstance().getContext().getIntent());
 
             if (!useLogin) {
                 UserApi.getInstance().login(ePlatform.Guest);
@@ -413,6 +424,7 @@ public class YSDK {
     public ePlatform getPlatform() {
         UserLoginRet ret = new UserLoginRet();
         YSDKApi.getLoginRecord(ret);
+
         if (ret.flag == eFlag.Succ) {
             return ePlatform.getEnum(ret.platform);
         }
@@ -424,7 +436,6 @@ public class YSDK {
         afterLogout = true;
         lastLoginResult = null;
         YSDKApi.logout();
-        U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "logout from sdk");
     }
 
     public void switchLogin() {
@@ -435,17 +446,22 @@ public class YSDK {
     }
 
     public void login() {
-        Log.d("U8SDK", "ysdk login begin...");
+        Log.d("U8SDK", "YSDK 登录");
+        if (!SDKTools.isNetworkAvailable(U8SDK.getInstance().getContext())) {
+            U8SDK.getInstance().onResult(U8Code.CODE_NO_NETWORK, "The network now is unavailable");
+            return;
+        }
+
         try {
             if (lastLoginResult != null) {
-                Log.d("U8SDK", "already auto logined. callback result directly." + lastLoginResult);
+                Log.d("U8SDK", "早期已有登录：" + lastLoginResult);
                 U8SDK.getInstance().onLoginResult(U8Code.CODE_LOGIN_SUCCESS, lastLoginResult);
                 lastLoginResult = null;
                 return;
             }
             openLoginUI();
         } catch (Exception e) {
-            U8SDK.getInstance().onLoginResult(U8Code.CODE_LOGIN_FAIL, e.getMessage());
+            U8SDK.getInstance().onResult(U8Code.CODE_LOGIN_FAIL, e.getMessage());
             e.printStackTrace();
         }
     }
@@ -471,13 +487,6 @@ public class YSDK {
 
     public void login(int loginType) {
 
-        if (!isPermissioned) {
-            Log.d("U8SDK", "login called. but now not permissioned. wait permission to end. login will be called auto");
-            lastLoginType = loginType;
-            loginAfterPermission = true;
-            return;
-        }
-
         if (lastActivityWaithDestroy != null) {
             try {
                 Log.d("U8SDK", "call ysdk onCreate before login to switch activity...");
@@ -486,6 +495,7 @@ public class YSDK {
                 //导致QQ登录的时候， 当前activity是第一个activity而收不到回调。
                 //这里onCreate api调用之后，可以将当前activity切换为正确的activity
                 YSDKApi.onCreate(U8SDK.getInstance().getContext());
+
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -502,27 +512,33 @@ public class YSDK {
             case LOGIN_TYPE_QQ:
                 switch (platform) {
                     case QQ:
-                        if (afterLogout) {//QQ已经登录
+                        //QQ已经登录
+                        //SDKApi.login(ePlatform.QQ);
+                        if (afterLogout) {
                             YSDKApi.logout();
                             YSDKApi.login(ePlatform.QQ);
                         } else {
                             letUserLogin(true);
                         }
                         break;
+
                     case None:
                         YSDKApi.login(ePlatform.QQ);
                         break;
+
                     default:
                         YSDKApi.logout();
                         YSDKApi.login(ePlatform.QQ);
-                        Toast.makeText(U8SDK.getInstance().getContext(), "请重新点击QQ登录", Toast.LENGTH_LONG).show();
+                        //U8SDK.getInstance().onResult(U8Code.CODE_LOGIN_FAIL, "请重新点击QQ登录");
                 }
                 break;
+
 
             case LOGIN_TYPE_WX:
                 switch (platform) {
                     case WX:
-                        if (afterLogout) {//微信已经登录
+                        //微信已经登录
+                        if (afterLogout) {
                             Log.d("U8SDK", "login wx to switch user...");
                             YSDKApi.logout();
                             YSDKApi.login(ePlatform.WX);
@@ -530,15 +546,38 @@ public class YSDK {
                             letUserLogin(true);
                         }
                         break;
+
                     case None:
                         YSDKApi.login(ePlatform.WX);
                         break;
+
                     default:
                         YSDKApi.logout();
                         YSDKApi.login(ePlatform.WX);
-                        Toast.makeText(U8SDK.getInstance().getContext(), "请重新点击QQ登录", Toast.LENGTH_LONG).show();
+                        //U8SDK.getInstance().onResult(U8Code.CODE_LOGIN_FAIL, "请重新点击微信登录");
                 }
                 break;
+
+
+            case LOGIN_TYPE_GUEST:
+                switch (platform) {
+                    case Guest:
+                        if (afterLogout) {
+                            YSDKApi.logout();
+                            YSDKApi.login(ePlatform.Guest);
+                        } else {
+                            letUserLogin(true);
+                        }
+                        break;
+
+                    case None:
+                        YSDKApi.login(ePlatform.Guest);
+                        break;
+
+                    default:
+                        YSDKApi.logout();
+                        YSDKApi.login(ePlatform.Guest);
+                }
         }
     }
 
@@ -547,23 +586,20 @@ public class YSDK {
         AlertDialog.Builder builder = new AlertDialog.Builder(U8SDK.getInstance().getContext());
         builder.setTitle("异账号提示");
         builder.setMessage("你当前拉起的账号与你本地的账号不一致，请选择使用哪个账号登陆：");
-        builder.setPositiveButton("本地账号",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,
-                                        int whichButton) {
+        builder.setPositiveButton("本地账号", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
                         //Toast.makeText(U8SDK.getInstance().getContext(), "选择使用本地账号", Toast.LENGTH_LONG).show();
                         if (!YSDKApi.switchUser(false)) {
-                            U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "");
+                            U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS,"请重新登录！");
                         }
                     }
                 });
-        builder.setNeutralButton("拉起账号",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,
-                                        int whichButton) {
+
+        builder.setNeutralButton("拉起账号", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
                         //Toast.makeText(U8SDK.getInstance().getContext(), "选择使用拉起账号", Toast.LENGTH_LONG).show();
                         if (!YSDKApi.switchUser(true)) {
-                            U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "");
+                            U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS,"请重新登录！");
                         }
                     }
                 });
@@ -585,22 +621,22 @@ public class YSDK {
     // 平台授权成功,让用户进入游戏. 由游戏自己实现登录的逻辑
     public void letUserLogin(final boolean autoLogin) {
 
-        U8SDK.getInstance().runOnMainThread(new Runnable() {
 
+        U8SDK.getInstance().runOnMainThread(new Runnable() {
             @Override
             public void run() {
                 UserLoginRet ret = new UserLoginRet();
                 YSDKApi.getLoginRecord(ret);
                 Log.d("U8SDK", "flag: " + ret.flag);
                 Log.d("U8SDK", "platform: " + ret.platform);
+
                 if (ret.ret != BaseRet.RET_SUCC) {
                     Log.d("U8SDK", "UserLogin error!!!");
                     if (autoLogin && logined && !isLoginCustom) {
                         openLoginUI();
                         return;
                     } else {
-                        //U8SDK.getInstance().onLoginResult(U8Code.CODE_LOGIN_FAIL, "login failed.");
-                        openLoginUI();
+                        U8SDK.getInstance().onResult(U8Code.CODE_LOGIN_FAIL, "login failed.");
                         return;
                     }
                 }
@@ -608,16 +644,19 @@ public class YSDK {
                 YSDKApi.setAntiAddictGameStart();        //开始实名时长统计
 
                 openId = ret.open_id;
+
                 int requesttype = -1; // 0:qq  1:微信
                 String accessToken = ret.getAccessToken();
                 if (ret.platform == ePlatform.PLATFORM_ID_QQ) {
                     requesttype = 0;
                     openKey = ret.getPayToken();
+
                 } else if (ret.platform == ePlatform.PLATFORM_ID_WX) {
                     requesttype = 1;
                     openKey = accessToken;
                 } else if (ret.platform == ePlatform.PLATFORM_ID_GUEST) {
                     requesttype = 3;
+
                 }
 
                 pf = ret.pf;
@@ -631,9 +670,11 @@ public class YSDK {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                if (logined) {//说明是登录之后调用的，触发的回调
+
+                if (logined) {
+                    //说明是登录之后调用的，触发的回调
                     logined = false;
-                    U8SDK.getInstance().onLoginResult(U8Code.CODE_LOGIN_SUCCESS, json.toString());
+                    U8SDK.getInstance().onLoginResult(U8Code.CODE_LOGIN_SUCCESS,json.toString());
                 } else {
                     //如果是初始化自动登录回调， 那么这里先缓存， 等客户端调用login接口的时候，直接返回自动登录结果。
                     Log.d("U8SDK", "cache auto login result:" + json.toString());
@@ -642,6 +683,7 @@ public class YSDK {
             }
         });
     }
+
 
     private PayParams payData;
 
@@ -686,15 +728,14 @@ public class YSDK {
                     switch (ret.flag) {
                         case eFlag.Login_TokenInvalid:
                             Log.d("U8SDK", "local token invalid. you now to login again.");
-                            //U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_FAIL, "pay failed");
+                            //U8SDK.getInstance().onResult(U8Code.CODE_PAY_FAIL, "pay failed");
                             try {
                                 YSDKApi.logout();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "");
+                            U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS,"请重新登录！");
                             break;
-
                         case eFlag.Pay_User_Cancle:
                             U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_CANCEL, "pay cancel");
                             break;
@@ -710,32 +751,25 @@ public class YSDK {
     }
 
     public void pay(PayParams data) {
-
         if (payType == 1) {
-
             if (!useLogin) {
                 Log.e("U8SDK", "pay for coin must use login. but now not use login.");
-                U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_FAIL, "pay failed");
+                U8SDK.getInstance().onResult(U8Code.CODE_PAY_FAIL, "pay failed");
                 return;
             }
-
             payForCoin(data);
         } else {
             payForItem(data);
         }
-
     }
 
     public void payForCoin(PayParams data) {
         payData = data;
-        QueryReqTask payReqTask = new QueryReqTask(true);
-        payReqTask.execute(REQ_TYPE_QUERY + "", payData.getOrderID(), (multiServers ? payData.getServerId() : "1"));
+        startQueryMoneyTask(true, REQ_TYPE_QUERY, payData.getOrderID(), (multiServers ? payData.getServerId() : "1"));
     }
 
     public void payInternal(final int leftMoney) {
-
         Log.d("U8SDK", "payInternal Start");
-
         U8SDK.getInstance().runOnMainThread(new Runnable() {
 
             @Override
@@ -756,7 +790,6 @@ public class YSDK {
                     bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
                     byte[] resData = baos.toByteArray();
                     YSDKApi.recharge(zoneID, savedValue + "", isCanChange, resData, payData.getOrderID(), new YSDKCallback());
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -766,14 +799,14 @@ public class YSDK {
 
     public void chargeWhenPaySuccess() {
         //支付成功向U8Server发送通知，调用查询余额接口并扣费
-
         if (payData == null) {
             Log.e("U8SDK", "the payData is null");
             return;
         }
-
-        PayReqTask payReqTask = new PayReqTask(true);
-        payReqTask.execute(REQ_TYPE_CHARGE + "", payData.getOrderID(), (multiServers ? payData.getServerId() : "1"));
+        //异步任务可能会卡住
+//		PayReqTask payReqTask = new PayReqTask(true);
+//		payReqTask.execute(REQ_TYPE_CHARGE+"", payData.getOrderID(), (multiServers ? payData.getServerId() : "1"));
+        startCompletePayTask(true, REQ_TYPE_CHARGE, payData.getOrderID(), (multiServers ? payData.getServerId() : "1"));
         payData = null;
     }
 
@@ -836,9 +869,7 @@ public class YSDK {
     }
 
     private String generateSign(Map<String, String> params) {
-
         StringBuffer content = new StringBuffer();
-
         // 按照key做排序
         List<String> keys = new ArrayList<String>(params.keySet());
         Collections.sort(keys);
@@ -851,12 +882,9 @@ public class YSDK {
                 content.append(key + "=");
             }
         }
-
         String signData = content.toString();
-
         signData = signData + U8SDK.getInstance().getAppKey();
         return EncryptUtils.md5(signData).toLowerCase(Locale.getDefault());
-
     }
 
     public void executeInstruction(AntiAddictRet ret) {
@@ -876,7 +904,9 @@ public class YSDK {
                                     if (modal == 1) {
                                         // 强制用户下线
                                         Log.d("U8SDK", "user logout because of antiaddict limit...");
-                                        U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "");
+                                        //U8SDK.getInstance().onLogout();
+                                        U8SDK.getInstance().getContext().finish();
+                                        System.exit(0);
                                     }
                                     changeExecuteState(false);
                                 }
@@ -911,7 +941,7 @@ public class YSDK {
                         public void onClick(View v) {
                             if (modal == 1) {
                                 Log.d("U8SDK", "user logout from antiaddict. modal == 1");
-                                U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS, "");
+                                U8SDK.getInstance().onLogoutResult(U8Code.CODE_LOGOUT_SUCCESS,"请重新登录！");
                             }
                             popupWindow.dismiss();
                             changeExecuteState(false);
@@ -928,6 +958,192 @@ public class YSDK {
 
     private void changeExecuteState(boolean state) {
         mAntiAddictExecuteState = state;
+    }
+
+
+    //支付之前，查询余额
+    public void startQueryMoneyTask(final boolean showTip, final int opType, final String orderID, final String zoneID) {
+        if (showTip) {
+            U8SDK.getInstance().runOnMainThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    showProgressDialog("正在查询余额，请稍后...");
+
+                }
+            });
+        }
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final String result = YSDK.getInstance().reqCharge(opType, orderID, zoneID);
+                U8SDK.getInstance().runOnMainThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (showTip) {
+                            hideProgressDialog();
+                        }
+                        onQueryMoneyTaskResult(showTip, result);
+                    }
+                });
+            }
+        });
+        t.start();
+    }
+
+    //完成支付
+    public void startCompletePayTask(final boolean showTip, final int opType, final String orderID, final String zoneID) {
+        if (showTip) {
+            U8SDK.getInstance().runOnMainThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    showProgressDialog("正在处理,请稍候...");
+
+                }
+            });
+        }
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                final String result = YSDK.getInstance().reqCharge(Integer.valueOf(opType), orderID, zoneID);
+                U8SDK.getInstance().runOnMainThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (showTip) {
+                            hideProgressDialog();
+                        }
+                        onCompletePayTaskResult(result);
+                    }
+                });
+            }
+        });
+        t.start();
+    }
+
+    private void onQueryMoneyTaskResult(boolean showTip, String result) {
+
+        if (TextUtils.isEmpty(result)) {
+            showTip("查询余额失败");
+            return;
+        }
+
+        try {
+            JSONObject json = new JSONObject(result);
+            int state = json.getInt("state");
+
+            if (state == 1) {
+                final int money = json.getInt("money");
+                Log.d("U8SDk", "the left money is " + money);
+                if (showTip && money > 0) {
+                    //showTip("当前有"+money+"余额，目前需要："+(payData.getPrice() * ratio));
+                    final int leftRmby = money / YSDK.getInstance().ratio;
+                    if (leftRmby >= YSDK.getInstance().payData.getPrice()) {
+
+                        U8SDK.getInstance().runOnMainThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(U8SDK.getInstance().getContext());
+                                builder.setTitle("购买确认");
+                                builder.setMessage(String.format("您当前拥有%s元余额，是否使用余额支付？", leftRmby + ""));
+                                builder.setCancelable(true);
+                                builder.setPositiveButton("确 定",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int whichButton) {
+
+                                                //确定就用余额支付
+                                                YSDK.getInstance().chargeWhenPaySuccess();
+
+                                            }
+                                        });
+                                builder.setNeutralButton("取 消",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int whichButton) {
+                                                //如果取消，就直接支付，不使用余额
+                                                YSDK.getInstance().payInternal(0);
+                                            }
+                                        });
+                                builder.show();
+                            }
+                        });
+                        return;
+                    } else {
+
+                        U8SDK.getInstance().runOnMainThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(U8SDK.getInstance().getContext());
+                                builder.setTitle("购买确认");
+                                builder.setMessage(String.format("您当前拥有%s元余额，是否使用这部分余额？", leftRmby + ""));
+                                builder.setCancelable(true);
+                                builder.setPositiveButton("确 定",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int whichButton) {
+
+                                                //确定就用余额支付
+                                                //chargeWhenPaySuccess();
+                                                YSDK.getInstance().payInternal(money);
+
+                                            }
+                                        });
+                                builder.setNeutralButton("取 消",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int whichButton) {
+                                                //如果取消，就直接支付，不使用余额
+                                                YSDK.getInstance().payInternal(0);
+                                            }
+                                        });
+                                builder.show();
+                            }
+                        });
+
+                        return;
+                    }
+
+                } else {
+                    Log.d("U8SDK", "the query result is " + result);
+                    YSDK.getInstance().payInternal(0);
+                }
+
+            }
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            U8SDK.getInstance().onResult(U8Code.CODE_PAY_FAIL, e.getMessage());
+            e.printStackTrace();
+            //payInternal(0);
+        }
+    }
+
+    private void onCompletePayTaskResult(String result) {
+        try {
+            JSONObject json = new JSONObject(result);
+            int state = json.getInt("state");
+
+            if (state == 1) {
+                U8SDK.getInstance().onResult(U8Code.CODE_PAY_SUCCESS, "pay success");
+                //showTip("支付成功,到账可能稍有延迟");
+            } else {
+                U8SDK.getInstance().onResult(U8Code.CODE_PAY_FAIL, "pay fail");
+                //showTip("支付失败,重新登录后,会重新查询并支付");
+            }
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            U8SDK.getInstance().onResult(U8Code.CODE_PAY_UNKNOWN, e.getMessage());
+        }
     }
 
     static class QueryReqTask extends AsyncTask<String, Void, String> {
@@ -955,118 +1171,21 @@ public class YSDK {
 
         @Override
         protected String doInBackground(String... args) {
+
             String opType = args[0];
             String orderID = args[1];
             String zoneID = args[2];
+
+
             return YSDK.getInstance().reqCharge(Integer.valueOf(opType), orderID, zoneID);
         }
 
         protected void onPostExecute(final String result) {
-
-            U8SDK.getInstance().runOnMainThread(new Runnable() {
-
-                @Override
-                public void run() {
-                    hideProgressDialog();
-                }
-            });
-
-            if (TextUtils.isEmpty(result)) {
-                showTip("查询余额失败");
-                return;
+            if (showTip) {
+                hideProgressDialog();
             }
+            YSDK.getInstance().onQueryMoneyTaskResult(showTip, result);
 
-            try {
-                JSONObject json = new JSONObject(result);
-                int state = json.getInt("state");
-
-                if (state == 1) {
-                    final int money = json.getInt("money");
-                    Log.d("U8SDk", "the left money is " + money);
-                    if (showTip && money > 0) {
-                        //showTip("当前有"+money+"余额，目前需要："+(payData.getPrice() * ratio));
-                        final int leftRmby = money / YSDK.getInstance().ratio;
-                        if (leftRmby >= YSDK.getInstance().payData.getPrice()) {
-
-                            U8SDK.getInstance().runOnMainThread(new Runnable() {
-
-                                @Override
-                                public void run() {
-
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(U8SDK.getInstance().getContext());
-                                    builder.setTitle("购买确认");
-                                    builder.setMessage(String.format("您当前拥有%s元余额，是否使用余额支付？", leftRmby + ""));
-                                    builder.setCancelable(true);
-                                    builder.setPositiveButton("确 定",
-                                            new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog,
-                                                                    int whichButton) {
-
-                                                    //确定就用余额支付
-                                                    YSDK.getInstance().chargeWhenPaySuccess();
-
-                                                }
-                                            });
-                                    builder.setNeutralButton("取 消",
-                                            new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog,
-                                                                    int whichButton) {
-                                                    //如果取消，就直接支付，不使用余额
-                                                    YSDK.getInstance().payInternal(0);
-                                                }
-                                            });
-                                    builder.show();
-                                }
-                            });
-                            return;
-                        } else {
-
-                            U8SDK.getInstance().runOnMainThread(new Runnable() {
-
-                                @Override
-                                public void run() {
-
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(U8SDK.getInstance().getContext());
-                                    builder.setTitle("购买确认");
-                                    builder.setMessage(String.format("您当前拥有%s元余额，是否使用这部分余额？", leftRmby + ""));
-                                    builder.setCancelable(true);
-                                    builder.setPositiveButton("确 定",
-                                            new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog,
-                                                                    int whichButton) {
-
-                                                    //确定就用余额支付
-                                                    //chargeWhenPaySuccess();
-                                                    YSDK.getInstance().payInternal(money);
-
-                                                }
-                                            });
-                                    builder.setNeutralButton("取 消",
-                                            new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog,
-                                                                    int whichButton) {
-                                                    //如果取消，就直接支付，不使用余额
-                                                    YSDK.getInstance().payInternal(0);
-                                                }
-                                            });
-                                    builder.show();
-                                }
-                            });
-
-                            return;
-                        }
-
-                    } else {
-                        Log.d("U8SDK", "the query result is " + result);
-                        YSDK.getInstance().payInternal(0);
-                    }
-
-                }
-
-            } catch (JSONException e) {
-                U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_FAIL, e.getMessage());
-                e.printStackTrace();
-            }
         }
 
     }
@@ -1082,47 +1201,41 @@ public class YSDK {
         protected void onPreExecute() {
             if (showTip) {
                 U8SDK.getInstance().runOnMainThread(new Runnable() {
+
                     @Override
                     public void run() {
                         showProgressDialog("正在处理,请稍候...");
+
                     }
                 });
+
             }
+
         }
 
         @Override
         protected String doInBackground(String... args) {
+
             String opType = args[0];
             String orderID = args[1];
             String zoneID = args[2];
+
+
             return YSDK.getInstance().reqCharge(Integer.valueOf(opType), orderID, zoneID);
         }
 
         protected void onPostExecute(final String result) {
 
             U8SDK.getInstance().runOnMainThread(new Runnable() {
+
                 @Override
                 public void run() {
                     hideProgressDialog();
+
                 }
             });
 
-            try {
-                JSONObject json = new JSONObject(result);
-                int state = json.getInt("state");
-
-                if (state == 1) {
-                    U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_SUCCESS, "pay success");
-                    //showTip("支付成功,到账可能稍有延迟");
-                } else {
-                    U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_FAIL, "pay fail");
-                    //showTip("支付失败,重新登录后,会重新查询并支付");
-                }
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                U8SDK.getInstance().onPayResult(U8Code.CODE_PAY_UNKNOWN, e.getMessage());
-            }
+            YSDK.getInstance().onCompletePayTaskResult(result);
 
         }
 

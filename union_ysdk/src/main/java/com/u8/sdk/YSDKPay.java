@@ -2,9 +2,9 @@ package com.u8.sdk;
 
 import android.app.Activity;
 
-public class YSDKPay implements IAdditionalPay {
+public class YSDKPay implements IPay {
 
-    public YSDKPay(Activity activity) {
+    public YSDKPay(Activity context) {
     }
 
     @Override
@@ -15,15 +15,6 @@ public class YSDKPay implements IAdditionalPay {
     @Override
     public void pay(PayParams data) {
         YSDK.getInstance().pay(data);
-    }
-
-    @Override
-    public void checkFailedOrder(PayParams data) {
-    }
-
-    @Override
-    public boolean needQueryResult() {
-        return true;
     }
 
 }
